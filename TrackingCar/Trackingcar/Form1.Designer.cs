@@ -627,7 +627,7 @@
             this.btn_Back.TabIndex = 2;
             this.btn_Back.Text = "后退";
             this.btn_Back.UseVisualStyleBackColor = false;
-            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click_1);
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // btn_Stop
             // 
@@ -640,7 +640,7 @@
             this.btn_Stop.TabIndex = 1;
             this.btn_Stop.Text = "停止";
             this.btn_Stop.UseVisualStyleBackColor = false;
-            this.btn_Stop.Click += new System.EventHandler(this.btn_Stop_Click_1);
+            this.btn_Stop.Click += new System.EventHandler(this.btn_Stop_Click);
             // 
             // btn_Forward
             // 
@@ -653,7 +653,7 @@
             this.btn_Forward.TabIndex = 0;
             this.btn_Forward.Text = "前进";
             this.btn_Forward.UseVisualStyleBackColor = false;
-            this.btn_Forward.Click += new System.EventHandler(this.btn_Forward_Click_1);
+            this.btn_Forward.Click += new System.EventHandler(this.btn_Forward_Click);
             // 
             // groupBox5
             // 
@@ -697,7 +697,6 @@
             this.btn_Change.TabIndex = 31;
             this.btn_Change.Text = "修改设置";
             this.btn_Change.UseVisualStyleBackColor = false;
-            this.btn_Change.Click += new System.EventHandler(this.btn_Change_Click);
             // 
             // btn_Save
             // 
@@ -709,7 +708,6 @@
             this.btn_Save.TabIndex = 30;
             this.btn_Save.Text = "保存设置";
             this.btn_Save.UseVisualStyleBackColor = false;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // eight_Delay
             // 

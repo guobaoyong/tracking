@@ -21,32 +21,43 @@ namespace Trackingcar
         //private static extern bool WritePrivateProfileString(string section, string key, string val, string filePath);
         //[DllImport("kernel32")]
 
-        public bool Send_status = true; //发送状态
+        //发送状态
+        public bool Send_status = true; 
 
         public Form1()
         {
+            //初始化
             InitializeComponent();
 
-            Control.CheckForIllegalCrossThreadCalls = false;   //防止跨线程访问出错，好多地方会用到 
+            //防止跨线程访问出错，好多地方会用到
+            Control.CheckForIllegalCrossThreadCalls = false;    
 
 
         }
 
-        SerialPort Port1 = new SerialPort();//串行端口实例化
+        //串行端口实例化
+        SerialPort Port1 = new SerialPort();
 
-        public int BaudRate;//波特率
+        //波特率
+        public int BaudRate;
 
+        //主窗体
         private void Form1_Load(object sender, EventArgs e)
         {
+            //初始化
             direction_Init();
+            //延时下拉框
             delayTime_Init();
+            //时间初始化
             timePresent_Init();
+
             status_Init();
 
         }
 
         #region 初始化
 
+        //方向初始化，对应窗体右侧小车方向，正序和倒序
         private void direction_Init()
         {
             List<string> dire = new List<string>();
@@ -57,6 +68,7 @@ namespace Trackingcar
             cmb_Direction.Items.Add(dire[1]);
         }
 
+        //时间初始化，对应窗体最下边获取系统当前时间
         private void timePresent_Init()
         {
             string year = DateTime.Now.Year.ToString();
@@ -67,6 +79,7 @@ namespace Trackingcar
             tsl_Date.Text = "      " + year + "/" + month + "/" + day + "           ";
         }
 
+        //状态初始化，对应窗体最左边小车状态
         private void status_Init()
         {
 
@@ -77,13 +90,13 @@ namespace Trackingcar
             txt_ScrnSpeed.Text = "";
             txt_Fan.Text = "";
 
-
         }
 
         #endregion
 
         #region 延时下拉框
 
+        //延时方法，对应窗体右边延时区
         private void delayTime_Init()
         {
 
@@ -113,11 +126,14 @@ namespace Trackingcar
         #endregion
 
         #region 串口检测
-        private void SearchPort()//串口检测
+
+        //串口检测
+        private void SearchPort()
         {
             try
             {
-                string[] ports = SerialPort.GetPortNames();//获取当前计算机的所有串行接口名
+                //获取当前计算机的所有串行接口名
+                string[] ports = SerialPort.GetPortNames();
 
                 foreach (string port in ports)
                 {
@@ -136,13 +152,14 @@ namespace Trackingcar
                     MessageBox.Show("没有发现可用端口！");
                 }
             }
-            catch
+            catch(Exception e)
             {
                 return;
             }
         }
 
-        private void btn_Open_Click(object sender, EventArgs e)//串口打开
+        //串口打开
+        private void btn_Open_Click(object sender, EventArgs e)
         {
             if (cmb_SerialPort.Items.Count != 0)
             {
@@ -177,14 +194,14 @@ namespace Trackingcar
             {
                 MessageBox.Show("没有发现可用端口！", "错误提示");
             }
-
-
         }
 
+        ////串口检测
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            cmb_SerialPort.Items.Clear();//从combobox1中移除所有项
-            SearchPort();//串口检测
+            //从combobox1中移除所有项
+            cmb_SerialPort.Items.Clear();
+            SearchPort();
         }
 
         #endregion
@@ -193,17 +210,28 @@ namespace Trackingcar
 
         byte[] Port_Buffer = new byte[6];
 
-        private void btn_Forward_Click(object sender, EventArgs e)//前进 //用串口发送数据 //0xff
+        //前进 
+        //用串口发送数据 
+        //0xff
+        private void btn_Forward_Click(object sender, EventArgs e)
         {
             if (Send_status)
             {
                 if (Port1.IsOpen)
                 {
-                    Port_Buffer[0] = 0xf5;
-                    Port_Buffer[1] = 0xff;  //
+                    //开始位
+                    Port_Buffer[0] = 0xf3;
+                    //方向，前进 
+                    Port_Buffer[1] = 0xff;
+                    //速度位
                     Port_Buffer[2] = 0xe1;
+                    //待定
                     Port_Buffer[3] = 0xd1;
+                    //待定
                     Port_Buffer[4] = 0xfc;
+                    //结束位
+                    Port_Buffer[5] = 0xfc;
+                    //串口写入
                     Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
                 }
                 else
@@ -213,7 +241,8 @@ namespace Trackingcar
             }
         }
 
-        private void btn_Back_Click(object sender, EventArgs e)//后退
+        //后退
+        private void btn_Back_Click(object sender, EventArgs e)
         {
             if (Send_status)
             {
@@ -230,8 +259,6 @@ namespace Trackingcar
                 {
                     MessageBox.Show("请先打开串口");
                 }
-                //  RobotEngine2.SendCMD(controlType, CMD_Backward, comm);
-                //  Send_status = false;
             }
         }
 
@@ -258,68 +285,33 @@ namespace Trackingcar
 
         #region 接收数据
 
-        public delegate void TichText();  //声明委托
+        //声明委托
+        public delegate void TichText(); 
+        //接受下位机传的数据拼接
         string strx;
         StringBuilder builder = new StringBuilder();
+        //接受8个数据位
         char[] CHAR = new char[8];
+        //字节长度
         int BytCount;
-        public void Deleg()   //用于数据处理
-        {
-            strx = builder.ToString();
-
-            if (strx.Length == 8)
-            {
-                CHAR = strx.ToCharArray();
-
-                txt_CarNum.Clear();
-                txt_ScrnSpeed.Clear();
-                txt_Fan.Clear();
-                txt_CardNum.Clear();
-
-                txt_Person.Clear();
-                txt_CarSpeed.Clear();
-
-                builder.Remove(0, builder.Length);
-
-                if (Convert.ToInt32(CHAR[0]) == 0xf9)
-                {
-                    txt_CarNum.Text = Convert.ToInt32(CHAR[1]).ToString();
-                    txt_ScrnSpeed.Text = Convert.ToInt32(CHAR[2]).ToString();
-                    txt_Fan.Text = Convert.ToInt32(CHAR[3]).ToString();
-
-                    return;
-                }
-                if (Convert.ToInt32(CHAR[0]) == 0xf7)
-                {
-                    txt_CardNum.Text = Convert.ToInt32(CHAR[1]).ToString();
-
-                    return;
-                }
-                if (Convert.ToInt32(CHAR[0]) == 0xf5)
-                {
-
-                    txt_CarSpeed.Text = Convert.ToInt32(CHAR[2]).ToString();
-
-                    txt_Person.Text = Convert.ToInt32(CHAR[3]).ToString();
-                    return;
-                }
-            }
-        }
-
+        //串口数据接收
         private void Port1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            //将Deleg方法委托给TichText
             TichText text = Deleg;
+            //接受数据拼接单元
             char CH;
             try
             {
                 while (Port1.BytesToRead > 0)
                 {
                     //  MessageBox.Show("字节数", Port1.BytesToRead.ToString(), MessageBoxButtons.OK);
-
                     do
                     {
                         BytCount = Port1.BytesToRead;
-                    } while (BytCount < 8);
+                    }
+                    while (BytCount < 8);
+
                     while (Port1.BytesToRead > 0)
                     {
                         CH = (char)Port1.ReadByte();
@@ -335,6 +327,48 @@ namespace Trackingcar
 
         }
 
+        //用于数据处理
+        public void Deleg()   
+        {
+            strx = builder.ToString();
+
+            if (strx.Length == 8)
+            {
+                CHAR = strx.ToCharArray();
+
+                txt_CarNum.Clear();
+                txt_ScrnSpeed.Clear();
+                txt_Fan.Clear();
+                txt_CardNum.Clear();
+                txt_Person.Clear();
+                txt_CarSpeed.Clear();
+
+                builder.Remove(0, builder.Length);
+
+                //屏幕数据
+                if (Convert.ToInt32(CHAR[0]) == 0xf9 && Convert.ToInt32(CHAR[7]) == 0xfc)
+                {
+                    txt_CarNum.Text = Convert.ToInt32(CHAR[1]).ToString();
+                    txt_ScrnSpeed.Text = Convert.ToInt32(CHAR[2]).ToString();
+                    txt_Fan.Text = Convert.ToInt32(CHAR[3]).ToString();
+
+                }
+                //RFID数据
+                if (Convert.ToInt32(CHAR[0]) == 0xf7 && Convert.ToInt32(CHAR[7]) == 0xfc)
+                {
+                    txt_CardNum.Text = Convert.ToInt32(CHAR[1]).ToString();
+
+                }
+                //串口数据
+                if (Convert.ToInt32(CHAR[0]) == 0xf5 && Convert.ToInt32(CHAR[7]) == 0xfc)
+                {
+                    txt_CarSpeed.Text = Convert.ToInt32(CHAR[2]).ToString();
+                    txt_Person.Text = Convert.ToInt32(CHAR[3]).ToString();
+                }
+            }
+        }
+
+        
         #endregion
 
         #region 菜单
@@ -344,31 +378,7 @@ namespace Trackingcar
         }
         #endregion
 
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Change_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Forward_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Stop_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Back_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
+        
 
     }
 }
