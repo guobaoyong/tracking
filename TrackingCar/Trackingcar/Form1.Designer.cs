@@ -173,7 +173,7 @@
             this.btn_Open.Name = "btn_Open";
             this.btn_Open.Size = new System.Drawing.Size(84, 24);
             this.btn_Open.TabIndex = 10;
-            this.btn_Open.Text = "打开端口";
+            this.btn_Open.Text = "打开串口";
             this.btn_Open.UseVisualStyleBackColor = false;
             this.btn_Open.Click += new System.EventHandler(this.btn_Open_Click);
             // 
@@ -1020,7 +1020,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(457, 302);
+            this.tabPage2.Size = new System.Drawing.Size(384, 302);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "摄像头";
             // 

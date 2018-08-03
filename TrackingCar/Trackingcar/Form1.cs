@@ -182,6 +182,7 @@ namespace Trackingcar
                     {
                         Port1.Close();
                         btn_Open.Text = "打开串口";
+                        tsl_Show.Text = "串口已关闭                                                                                     ";
 
                     }
                 }
