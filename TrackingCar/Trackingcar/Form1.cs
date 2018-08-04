@@ -66,6 +66,7 @@ namespace Trackingcar
             cmb_Direction.Text = dire[0];
             cmb_Direction.Items.Add(dire[0]);
             cmb_Direction.Items.Add(dire[1]);
+
         }
 
         //时间初始化，对应窗体最下边获取系统当前时间
@@ -76,7 +77,7 @@ namespace Trackingcar
             string day = DateTime.Now.Day.ToString();
             string time = DateTime.UtcNow.ToString();
 
-            tsl_Date.Text = "      " + year + "/" + month + "/" + day + "           ";
+            tsl_Date.Text = "      " + year + "/" + month + "/" + day + "                                                           ";
         }
 
         //状态初始化，对应窗体最左边小车状态
@@ -89,6 +90,14 @@ namespace Trackingcar
             txt_Person.Text = "";
             txt_ScrnSpeed.Text = "";
             txt_Fan.Text = "";
+
+
+            txt_CarNum.ReadOnly = true;
+            txt_CardNum.ReadOnly = true;
+            txt_CarSpeed.ReadOnly = true;
+            txt_Person.ReadOnly = true;
+            txt_ScrnSpeed.ReadOnly = true;
+            txt_Fan.ReadOnly = true;
 
         }
 
@@ -108,6 +117,8 @@ namespace Trackingcar
             six_Delay.Text = "0 分钟";
             seven_Delay.Text = "0 分钟";
             eight_Delay.Text = "0 分钟";
+
+
             for (int i = 0; i < 100; i++)
             {
                 one_Delay.Items.Add(i + " 分钟");
@@ -119,6 +130,7 @@ namespace Trackingcar
                 seven_Delay.Items.Add(i + " 分钟");
                 eight_Delay.Items.Add(i + " 分钟");
             }
+            
 
         }
 
@@ -157,7 +169,7 @@ namespace Trackingcar
                 return;
             }
         }
-
+        bool Send_Status = false;
         //串口打开
         private void btn_Open_Click(object sender, EventArgs e)
         {
@@ -171,11 +183,21 @@ namespace Trackingcar
                         {
                             Port1.PortName = cmb_SerialPort.Text;
                             Port1.BaudRate = Convert.ToInt32(cmb_BaudRate.Text);
+                            Port1.Handshake = Handshake.None;
+                            Port1.Parity = Parity.None;
+                            Port1.DataBits = 8;
+                            Port1.StopBits = StopBits.One;
+                            Port1.RtsEnable = true;
+                            Send_Status = true;
 
                             Port1.Open();
                             MessageBox.Show("打开成功！");
                             tsl_Show.Text = cmb_SerialPort.Text + " 串口已打开                                                                                     ";
                             btn_Open.Text = "关闭串口";
+
+                            btn_Back.Enabled = true;
+                            btn_Forward.Enabled = true;
+                            btn_Stop.Enabled = true;
                         }
                     }
                     else if (Port1.IsOpen == true)
@@ -183,7 +205,9 @@ namespace Trackingcar
                         Port1.Close();
                         btn_Open.Text = "打开串口";
                         tsl_Show.Text = "串口已关闭                                                                                     ";
-
+                        btn_Back.Enabled = false;
+                        btn_Forward.Enabled = false;
+                        btn_Stop.Enabled = false;
                     }
                 }
                 catch
@@ -202,6 +226,7 @@ namespace Trackingcar
         {
             //从combobox1中移除所有项
             cmb_SerialPort.Items.Clear();
+
             SearchPort();
         }
 
@@ -378,6 +403,12 @@ namespace Trackingcar
             this.Close();
         }
         #endregion
+
+        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
 
         
 

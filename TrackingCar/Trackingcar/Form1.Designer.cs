@@ -621,7 +621,7 @@
             this.btn_Back.BackColor = System.Drawing.Color.Honeydew;
             this.btn_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Back.Location = new System.Drawing.Point(245, 26);
+            this.btn_Back.Location = new System.Drawing.Point(221, 28);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(75, 34);
             this.btn_Back.TabIndex = 2;
@@ -634,7 +634,7 @@
             this.btn_Stop.BackColor = System.Drawing.Color.Honeydew;
             this.btn_Stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_Stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Stop.Location = new System.Drawing.Point(138, 26);
+            this.btn_Stop.Location = new System.Drawing.Point(128, 28);
             this.btn_Stop.Name = "btn_Stop";
             this.btn_Stop.Size = new System.Drawing.Size(75, 34);
             this.btn_Stop.TabIndex = 1;
@@ -647,7 +647,7 @@
             this.btn_Forward.BackColor = System.Drawing.Color.Honeydew;
             this.btn_Forward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_Forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Forward.Location = new System.Drawing.Point(27, 26);
+            this.btn_Forward.Location = new System.Drawing.Point(38, 28);
             this.btn_Forward.Name = "btn_Forward";
             this.btn_Forward.Size = new System.Drawing.Size(75, 34);
             this.btn_Forward.TabIndex = 0;
@@ -691,9 +691,9 @@
             // 
             this.btn_Change.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_Change.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Change.Location = new System.Drawing.Point(202, 292);
+            this.btn_Change.Location = new System.Drawing.Point(210, 292);
             this.btn_Change.Name = "btn_Change";
-            this.btn_Change.Size = new System.Drawing.Size(118, 33);
+            this.btn_Change.Size = new System.Drawing.Size(84, 33);
             this.btn_Change.TabIndex = 31;
             this.btn_Change.Text = "修改设置";
             this.btn_Change.UseVisualStyleBackColor = false;
@@ -702,9 +702,9 @@
             // 
             this.btn_Save.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_Save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Save.Location = new System.Drawing.Point(27, 292);
+            this.btn_Save.Location = new System.Drawing.Point(53, 292);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(118, 33);
+            this.btn_Save.Size = new System.Drawing.Size(92, 33);
             this.btn_Save.TabIndex = 30;
             this.btn_Save.Text = "保存设置";
             this.btn_Save.UseVisualStyleBackColor = false;
@@ -712,7 +712,7 @@
             // eight_Delay
             // 
             this.eight_Delay.FormattingEnabled = true;
-            this.eight_Delay.Location = new System.Drawing.Point(249, 240);
+            this.eight_Delay.Location = new System.Drawing.Point(221, 239);
             this.eight_Delay.Name = "eight_Delay";
             this.eight_Delay.Size = new System.Drawing.Size(73, 24);
             this.eight_Delay.TabIndex = 21;
@@ -720,7 +720,7 @@
             // five_Delay
             // 
             this.five_Delay.FormattingEnabled = true;
-            this.five_Delay.Location = new System.Drawing.Point(249, 163);
+            this.five_Delay.Location = new System.Drawing.Point(221, 162);
             this.five_Delay.Name = "five_Delay";
             this.five_Delay.Size = new System.Drawing.Size(73, 24);
             this.five_Delay.TabIndex = 20;
@@ -728,7 +728,7 @@
             // six_Delay
             // 
             this.six_Delay.FormattingEnabled = true;
-            this.six_Delay.Location = new System.Drawing.Point(249, 189);
+            this.six_Delay.Location = new System.Drawing.Point(221, 188);
             this.six_Delay.Name = "six_Delay";
             this.six_Delay.Size = new System.Drawing.Size(73, 24);
             this.six_Delay.TabIndex = 19;
@@ -736,7 +736,7 @@
             // four_Delay
             // 
             this.four_Delay.FormattingEnabled = true;
-            this.four_Delay.Location = new System.Drawing.Point(249, 137);
+            this.four_Delay.Location = new System.Drawing.Point(221, 136);
             this.four_Delay.Name = "four_Delay";
             this.four_Delay.Size = new System.Drawing.Size(73, 24);
             this.four_Delay.TabIndex = 18;
@@ -744,7 +744,7 @@
             // three_Delay
             // 
             this.three_Delay.FormattingEnabled = true;
-            this.three_Delay.Location = new System.Drawing.Point(249, 109);
+            this.three_Delay.Location = new System.Drawing.Point(221, 108);
             this.three_Delay.Name = "three_Delay";
             this.three_Delay.Size = new System.Drawing.Size(73, 24);
             this.three_Delay.TabIndex = 17;
@@ -752,7 +752,7 @@
             // seven_Delay
             // 
             this.seven_Delay.FormattingEnabled = true;
-            this.seven_Delay.Location = new System.Drawing.Point(249, 214);
+            this.seven_Delay.Location = new System.Drawing.Point(221, 213);
             this.seven_Delay.Name = "seven_Delay";
             this.seven_Delay.Size = new System.Drawing.Size(73, 24);
             this.seven_Delay.TabIndex = 16;
@@ -760,7 +760,7 @@
             // two_Delay
             // 
             this.two_Delay.FormattingEnabled = true;
-            this.two_Delay.Location = new System.Drawing.Point(249, 81);
+            this.two_Delay.Location = new System.Drawing.Point(221, 80);
             this.two_Delay.Name = "two_Delay";
             this.two_Delay.Size = new System.Drawing.Size(73, 24);
             this.two_Delay.TabIndex = 15;
@@ -784,81 +784,90 @@
             // chk_One
             // 
             this.chk_One.AutoSize = true;
+            this.chk_One.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_One.Location = new System.Drawing.Point(3, 3);
             this.chk_One.Name = "chk_One";
-            this.chk_One.Size = new System.Drawing.Size(59, 20);
-            this.chk_One.TabIndex = 5;
+            this.chk_One.Size = new System.Drawing.Size(57, 20);
+            this.chk_One.TabIndex = 1;
             this.chk_One.Text = "一站";
             this.chk_One.UseVisualStyleBackColor = true;
             // 
             // chk_Two
             // 
             this.chk_Two.AutoSize = true;
+            this.chk_Two.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_Two.Location = new System.Drawing.Point(3, 29);
             this.chk_Two.Name = "chk_Two";
-            this.chk_Two.Size = new System.Drawing.Size(59, 20);
-            this.chk_Two.TabIndex = 6;
+            this.chk_Two.Size = new System.Drawing.Size(57, 20);
+            this.chk_Two.TabIndex = 2;
             this.chk_Two.Text = "二站";
             this.chk_Two.UseVisualStyleBackColor = true;
             // 
             // chk_Three
             // 
             this.chk_Three.AutoSize = true;
+            this.chk_Three.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_Three.Location = new System.Drawing.Point(3, 55);
             this.chk_Three.Name = "chk_Three";
-            this.chk_Three.Size = new System.Drawing.Size(59, 20);
-            this.chk_Three.TabIndex = 7;
+            this.chk_Three.Size = new System.Drawing.Size(57, 20);
+            this.chk_Three.TabIndex = 3;
             this.chk_Three.Text = "三站";
             this.chk_Three.UseVisualStyleBackColor = true;
             // 
             // chk_Four
             // 
             this.chk_Four.AutoSize = true;
+            this.chk_Four.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_Four.Location = new System.Drawing.Point(3, 81);
             this.chk_Four.Name = "chk_Four";
-            this.chk_Four.Size = new System.Drawing.Size(59, 20);
-            this.chk_Four.TabIndex = 8;
+            this.chk_Four.Size = new System.Drawing.Size(57, 20);
+            this.chk_Four.TabIndex = 4;
             this.chk_Four.Text = "四站";
             this.chk_Four.UseVisualStyleBackColor = true;
             // 
             // chk_Five
             // 
             this.chk_Five.AutoSize = true;
+            this.chk_Five.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_Five.Location = new System.Drawing.Point(3, 107);
             this.chk_Five.Name = "chk_Five";
-            this.chk_Five.Size = new System.Drawing.Size(59, 20);
-            this.chk_Five.TabIndex = 9;
+            this.chk_Five.Size = new System.Drawing.Size(57, 20);
+            this.chk_Five.TabIndex = 5;
             this.chk_Five.Text = "五站";
             this.chk_Five.UseVisualStyleBackColor = true;
             // 
             // chk_Six
             // 
             this.chk_Six.AutoSize = true;
+            this.chk_Six.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_Six.Location = new System.Drawing.Point(3, 133);
             this.chk_Six.Name = "chk_Six";
-            this.chk_Six.Size = new System.Drawing.Size(59, 20);
-            this.chk_Six.TabIndex = 10;
+            this.chk_Six.Size = new System.Drawing.Size(57, 20);
+            this.chk_Six.TabIndex = 6;
             this.chk_Six.Text = "六站";
             this.chk_Six.UseVisualStyleBackColor = true;
             // 
             // chk_Seven
             // 
             this.chk_Seven.AutoSize = true;
+            this.chk_Seven.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_Seven.Location = new System.Drawing.Point(3, 159);
             this.chk_Seven.Name = "chk_Seven";
-            this.chk_Seven.Size = new System.Drawing.Size(59, 20);
-            this.chk_Seven.TabIndex = 11;
+            this.chk_Seven.Size = new System.Drawing.Size(57, 20);
+            this.chk_Seven.TabIndex = 7;
             this.chk_Seven.Text = "七站";
             this.chk_Seven.UseVisualStyleBackColor = true;
             // 
             // chk_Eight
             // 
             this.chk_Eight.AutoSize = true;
+            this.chk_Eight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chk_Eight.Location = new System.Drawing.Point(3, 185);
             this.chk_Eight.Name = "chk_Eight";
-            this.chk_Eight.Size = new System.Drawing.Size(59, 20);
-            this.chk_Eight.TabIndex = 12;
+            this.chk_Eight.Size = new System.Drawing.Size(57, 20);
+            this.chk_Eight.TabIndex = 8;
             this.chk_Eight.Text = "八站";
+            this.chk_Eight.ThreeState = true;
             this.chk_Eight.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -873,7 +882,7 @@
             // one_Delay
             // 
             this.one_Delay.FormattingEnabled = true;
-            this.one_Delay.Location = new System.Drawing.Point(249, 55);
+            this.one_Delay.Location = new System.Drawing.Point(221, 54);
             this.one_Delay.Name = "one_Delay";
             this.one_Delay.Size = new System.Drawing.Size(73, 24);
             this.one_Delay.TabIndex = 13;
@@ -899,7 +908,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.Location = new System.Drawing.Point(199, 242);
+            this.label26.Location = new System.Drawing.Point(171, 241);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(56, 16);
             this.label26.TabIndex = 29;
@@ -909,7 +918,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(199, 217);
+            this.label25.Location = new System.Drawing.Point(171, 216);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(56, 16);
             this.label25.TabIndex = 28;
@@ -919,7 +928,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label24.Location = new System.Drawing.Point(199, 191);
+            this.label24.Location = new System.Drawing.Point(171, 190);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(56, 16);
             this.label24.TabIndex = 27;
@@ -929,7 +938,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(199, 164);
+            this.label23.Location = new System.Drawing.Point(171, 163);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(56, 16);
             this.label23.TabIndex = 26;
@@ -939,7 +948,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label22.Location = new System.Drawing.Point(199, 138);
+            this.label22.Location = new System.Drawing.Point(171, 137);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(56, 16);
             this.label22.TabIndex = 25;
@@ -949,7 +958,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(199, 112);
+            this.label21.Location = new System.Drawing.Point(171, 111);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(56, 16);
             this.label21.TabIndex = 24;
@@ -959,7 +968,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.Location = new System.Drawing.Point(199, 86);
+            this.label20.Location = new System.Drawing.Point(171, 85);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(56, 16);
             this.label20.TabIndex = 23;
@@ -969,7 +978,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(201, 60);
+            this.label19.Location = new System.Drawing.Point(173, 59);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 16);
             this.label19.TabIndex = 22;
@@ -1045,8 +1054,9 @@
             // tsl_Date
             // 
             this.tsl_Date.Name = "tsl_Date";
-            this.tsl_Date.Size = new System.Drawing.Size(68, 17);
-            this.tsl_Date.Text = "当前时间：";
+            this.tsl_Date.Size = new System.Drawing.Size(536, 17);
+            this.tsl_Date.Text = "当前时间：                                                                            " +
+    "                                         ";
             // 
             // flowLayoutPanel3
             // 
@@ -1064,6 +1074,7 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(994, 514);
             this.flowLayoutPanel4.TabIndex = 16;
+            this.flowLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel4_Paint);
             // 
             // Form1
             // 
