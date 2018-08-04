@@ -53,6 +53,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -114,25 +122,10 @@
             this.tsl_Date = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.menu.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -141,6 +134,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menu.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -250,6 +250,7 @@
             // 
             this.txt_ScrnSpeed.Location = new System.Drawing.Point(111, 197);
             this.txt_ScrnSpeed.Name = "txt_ScrnSpeed";
+            this.txt_ScrnSpeed.ReadOnly = true;
             this.txt_ScrnSpeed.Size = new System.Drawing.Size(100, 26);
             this.txt_ScrnSpeed.TabIndex = 11;
             this.toolTip1.SetToolTip(this.txt_ScrnSpeed, "此处数据不可修改");
@@ -258,6 +259,7 @@
             // 
             this.txt_Person.Location = new System.Drawing.Point(111, 160);
             this.txt_Person.Name = "txt_Person";
+            this.txt_Person.ReadOnly = true;
             this.txt_Person.Size = new System.Drawing.Size(100, 26);
             this.txt_Person.TabIndex = 10;
             this.toolTip1.SetToolTip(this.txt_Person, "此处数据不可修改");
@@ -266,6 +268,7 @@
             // 
             this.txt_CarSpeed.Location = new System.Drawing.Point(111, 124);
             this.txt_CarSpeed.Name = "txt_CarSpeed";
+            this.txt_CarSpeed.ReadOnly = true;
             this.txt_CarSpeed.Size = new System.Drawing.Size(100, 26);
             this.txt_CarSpeed.TabIndex = 9;
             this.toolTip1.SetToolTip(this.txt_CarSpeed, "此处数据不可修改");
@@ -274,6 +277,7 @@
             // 
             this.txt_CardNum.Location = new System.Drawing.Point(111, 89);
             this.txt_CardNum.Name = "txt_CardNum";
+            this.txt_CardNum.ReadOnly = true;
             this.txt_CardNum.Size = new System.Drawing.Size(100, 26);
             this.txt_CardNum.TabIndex = 8;
             this.toolTip1.SetToolTip(this.txt_CardNum, "此处数据不可修改");
@@ -282,6 +286,7 @@
             // 
             this.txt_Fan.Location = new System.Drawing.Point(111, 53);
             this.txt_Fan.Name = "txt_Fan";
+            this.txt_Fan.ReadOnly = true;
             this.txt_Fan.Size = new System.Drawing.Size(100, 26);
             this.txt_Fan.TabIndex = 7;
             this.toolTip1.SetToolTip(this.txt_Fan, "此处数据不可修改");
@@ -290,6 +295,7 @@
             // 
             this.txt_CarNum.Location = new System.Drawing.Point(111, 16);
             this.txt_CarNum.Name = "txt_CarNum";
+            this.txt_CarNum.ReadOnly = true;
             this.txt_CarNum.Size = new System.Drawing.Size(100, 26);
             this.txt_CarNum.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txt_CarNum, "此处数据不可修改");
@@ -382,6 +388,78 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "站点状态";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(156, 136);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox8.TabIndex = 21;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(55, 136);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox7.TabIndex = 20;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(156, 95);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox6.TabIndex = 19;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(55, 97);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox5.TabIndex = 18;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(156, 61);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.TabIndex = 17;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(53, 61);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(156, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(53, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // label18
             // 
@@ -611,6 +689,8 @@
             // 
             // eight_Delay
             // 
+            this.eight_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.eight_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eight_Delay.FormattingEnabled = true;
             this.eight_Delay.Location = new System.Drawing.Point(221, 239);
             this.eight_Delay.Name = "eight_Delay";
@@ -619,6 +699,8 @@
             // 
             // five_Delay
             // 
+            this.five_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.five_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.five_Delay.FormattingEnabled = true;
             this.five_Delay.Location = new System.Drawing.Point(221, 162);
             this.five_Delay.Name = "five_Delay";
@@ -627,6 +709,8 @@
             // 
             // six_Delay
             // 
+            this.six_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.six_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.six_Delay.FormattingEnabled = true;
             this.six_Delay.Location = new System.Drawing.Point(221, 188);
             this.six_Delay.Name = "six_Delay";
@@ -635,6 +719,8 @@
             // 
             // four_Delay
             // 
+            this.four_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.four_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.four_Delay.FormattingEnabled = true;
             this.four_Delay.Location = new System.Drawing.Point(221, 136);
             this.four_Delay.Name = "four_Delay";
@@ -643,6 +729,8 @@
             // 
             // three_Delay
             // 
+            this.three_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.three_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.three_Delay.FormattingEnabled = true;
             this.three_Delay.Location = new System.Drawing.Point(221, 108);
             this.three_Delay.Name = "three_Delay";
@@ -651,6 +739,8 @@
             // 
             // seven_Delay
             // 
+            this.seven_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.seven_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seven_Delay.FormattingEnabled = true;
             this.seven_Delay.Location = new System.Drawing.Point(221, 213);
             this.seven_Delay.Name = "seven_Delay";
@@ -659,6 +749,8 @@
             // 
             // two_Delay
             // 
+            this.two_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.two_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.two_Delay.FormattingEnabled = true;
             this.two_Delay.Location = new System.Drawing.Point(221, 80);
             this.two_Delay.Name = "two_Delay";
@@ -781,6 +873,8 @@
             // 
             // one_Delay
             // 
+            this.one_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.one_Delay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.one_Delay.FormattingEnabled = true;
             this.one_Delay.Location = new System.Drawing.Point(221, 54);
             this.one_Delay.Name = "one_Delay";
@@ -789,6 +883,8 @@
             // 
             // cmb_Direction
             // 
+            this.cmb_Direction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Direction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmb_Direction.FormattingEnabled = true;
             this.cmb_Direction.Location = new System.Drawing.Point(53, 19);
             this.cmb_Direction.Name = "cmb_Direction";
@@ -974,78 +1070,6 @@
             this.flowLayoutPanel4.Size = new System.Drawing.Size(994, 511);
             this.flowLayoutPanel4.TabIndex = 16;
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(156, 136);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox8.TabIndex = 21;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(55, 136);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox7.TabIndex = 20;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(156, 95);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox6.TabIndex = 19;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(55, 97);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox5.TabIndex = 18;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(156, 61);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox4.TabIndex = 17;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(53, 61);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(156, 22);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(53, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1075,6 +1099,14 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1086,14 +1118,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -54,6 +54,7 @@ namespace Trackingcar
             timePresent_Init();
             status_Init();
 
+            //自定义放大
             this.Resize += new EventHandler(Form1_Resize);//执行Form1_Resize方法
             X = this.Width;
             Y = this.Height;
@@ -69,9 +70,10 @@ namespace Trackingcar
             List<string> dire = new List<string>();
             dire.Add("正序");
             dire.Add("倒序");
-            cmb_Direction.Text = dire[0];
             cmb_Direction.Items.Add(dire[0]);
             cmb_Direction.Items.Add(dire[1]);
+            //ComboBox 控件的属性selectedindex是控制默认值的，如果selectedindex为-1，则默认值为空，若selectedindex为n，则默认值为选项列表中的第n个选项。
+            this.cmb_Direction.SelectedIndex = 0;
 
         }
 
@@ -115,16 +117,6 @@ namespace Trackingcar
         private void delayTime_Init()
         {
 
-            one_Delay.Text = "0 分钟";
-            two_Delay.Text = "0 分钟";
-            three_Delay.Text = "0 分钟";
-            four_Delay.Text = "0 分钟";
-            five_Delay.Text = "0 分钟";
-            six_Delay.Text = "0 分钟";
-            seven_Delay.Text = "0 分钟";
-            eight_Delay.Text = "0 分钟";
-
-
             for (int i = 0; i < 100; i++)
             {
                 one_Delay.Items.Add(i + " 分钟");
@@ -136,7 +128,14 @@ namespace Trackingcar
                 seven_Delay.Items.Add(i + " 分钟");
                 eight_Delay.Items.Add(i + " 分钟");
             }
-            
+            this.one_Delay.SelectedIndex = 0;
+            this.two_Delay.SelectedIndex = 0;
+            this.three_Delay.SelectedIndex = 0;
+            this.four_Delay.SelectedIndex = 0;
+            this.five_Delay.SelectedIndex = 0;
+            this.six_Delay.SelectedIndex = 0;
+            this.seven_Delay.SelectedIndex = 0;
+            this.eight_Delay.SelectedIndex = 0;
 
         }
 
@@ -280,11 +279,12 @@ namespace Trackingcar
             {
                 if (Port1.IsOpen)
                 {
-                    Port_Buffer[0] = 0xf5;
-                    Port_Buffer[1] = 0xfe;  //
+                    Port_Buffer[0] = 0xf3;
+                    Port_Buffer[1] = 0xfd;  //
                     Port_Buffer[2] = 0xe1;
                     Port_Buffer[3] = 0xd1;
-                    Port_Buffer[4] = 0xfc;
+                    Port_Buffer[4] = 0xd1;
+                    Port_Buffer[5] = 0xfc;
                     Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
                 }
                 else
@@ -300,11 +300,12 @@ namespace Trackingcar
 
             if (Port1.IsOpen)
             {
-                Port_Buffer[0] = 0xf5;
-                Port_Buffer[1] = 0xfd;  //
+                Port_Buffer[0] = 0xf3;
+                Port_Buffer[1] = 0xfe;  //
                 Port_Buffer[2] = 0xe1;
                 Port_Buffer[3] = 0xd1;
-                Port_Buffer[4] = 0xfc;
+                Port_Buffer[4] = 0xd1;
+                Port_Buffer[5] = 0xfc;
                 Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
             }
             else
@@ -411,12 +412,11 @@ namespace Trackingcar
         #endregion
 
         #region 自定义放大
-        private void Form1_Resize(object sender, EventArgs e) //调用Resize时间
+        private void Form1_Resize(object sender, EventArgs e) //调用Resize事件
         {
             float newx = (this.Width) / X;//当前宽度与变化前宽度之比
             float newy = this.Height / Y;//当前高度与变化前宽度之比
             setControls(newx, newy, this);
-            this.Text = this.Width.ToString() + " " + this.Height.ToString();  //窗体标题显示长度和宽度
         }
 
 
@@ -453,7 +453,7 @@ namespace Trackingcar
             }
         }
 
-        #endregion
+        #endregion 
 
     }
 }
