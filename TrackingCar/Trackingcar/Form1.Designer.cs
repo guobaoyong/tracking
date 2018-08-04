@@ -243,6 +243,7 @@
             // 
             this.txt_ScrnSpeed.Location = new System.Drawing.Point(111, 197);
             this.txt_ScrnSpeed.Name = "txt_ScrnSpeed";
+            this.txt_ScrnSpeed.ReadOnly = true;
             this.txt_ScrnSpeed.Size = new System.Drawing.Size(100, 26);
             this.txt_ScrnSpeed.TabIndex = 11;
             this.toolTip1.SetToolTip(this.txt_ScrnSpeed, "此处数据不可修改");
@@ -251,6 +252,7 @@
             // 
             this.txt_Person.Location = new System.Drawing.Point(111, 160);
             this.txt_Person.Name = "txt_Person";
+            this.txt_Person.ReadOnly = true;
             this.txt_Person.Size = new System.Drawing.Size(100, 26);
             this.txt_Person.TabIndex = 10;
             this.toolTip1.SetToolTip(this.txt_Person, "此处数据不可修改");
@@ -259,6 +261,7 @@
             // 
             this.txt_CarSpeed.Location = new System.Drawing.Point(111, 124);
             this.txt_CarSpeed.Name = "txt_CarSpeed";
+            this.txt_CarSpeed.ReadOnly = true;
             this.txt_CarSpeed.Size = new System.Drawing.Size(100, 26);
             this.txt_CarSpeed.TabIndex = 9;
             this.toolTip1.SetToolTip(this.txt_CarSpeed, "此处数据不可修改");
@@ -267,6 +270,7 @@
             // 
             this.txt_CardNum.Location = new System.Drawing.Point(111, 89);
             this.txt_CardNum.Name = "txt_CardNum";
+            this.txt_CardNum.ReadOnly = true;
             this.txt_CardNum.Size = new System.Drawing.Size(100, 26);
             this.txt_CardNum.TabIndex = 8;
             this.toolTip1.SetToolTip(this.txt_CardNum, "此处数据不可修改");
@@ -275,6 +279,7 @@
             // 
             this.txt_Fan.Location = new System.Drawing.Point(111, 53);
             this.txt_Fan.Name = "txt_Fan";
+            this.txt_Fan.ReadOnly = true;
             this.txt_Fan.Size = new System.Drawing.Size(100, 26);
             this.txt_Fan.TabIndex = 7;
             this.toolTip1.SetToolTip(this.txt_Fan, "此处数据不可修改");
@@ -283,6 +288,7 @@
             // 
             this.txt_CarNum.Location = new System.Drawing.Point(111, 16);
             this.txt_CarNum.Name = "txt_CarNum";
+            this.txt_CarNum.ReadOnly = true;
             this.txt_CarNum.Size = new System.Drawing.Size(100, 26);
             this.txt_CarNum.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txt_CarNum, "此处数据不可修改");
@@ -711,6 +717,7 @@
             // 
             // eight_Delay
             // 
+            this.eight_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.eight_Delay.FormattingEnabled = true;
             this.eight_Delay.Location = new System.Drawing.Point(249, 240);
             this.eight_Delay.Name = "eight_Delay";
@@ -719,6 +726,7 @@
             // 
             // five_Delay
             // 
+            this.five_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.five_Delay.FormattingEnabled = true;
             this.five_Delay.Location = new System.Drawing.Point(249, 163);
             this.five_Delay.Name = "five_Delay";
@@ -727,6 +735,7 @@
             // 
             // six_Delay
             // 
+            this.six_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.six_Delay.FormattingEnabled = true;
             this.six_Delay.Location = new System.Drawing.Point(249, 189);
             this.six_Delay.Name = "six_Delay";
@@ -735,6 +744,7 @@
             // 
             // four_Delay
             // 
+            this.four_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.four_Delay.FormattingEnabled = true;
             this.four_Delay.Location = new System.Drawing.Point(249, 137);
             this.four_Delay.Name = "four_Delay";
@@ -743,6 +753,7 @@
             // 
             // three_Delay
             // 
+            this.three_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.three_Delay.FormattingEnabled = true;
             this.three_Delay.Location = new System.Drawing.Point(249, 109);
             this.three_Delay.Name = "three_Delay";
@@ -751,6 +762,7 @@
             // 
             // seven_Delay
             // 
+            this.seven_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.seven_Delay.FormattingEnabled = true;
             this.seven_Delay.Location = new System.Drawing.Point(249, 214);
             this.seven_Delay.Name = "seven_Delay";
@@ -759,6 +771,7 @@
             // 
             // two_Delay
             // 
+            this.two_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.two_Delay.FormattingEnabled = true;
             this.two_Delay.Location = new System.Drawing.Point(249, 81);
             this.two_Delay.Name = "two_Delay";
@@ -872,6 +885,7 @@
             // 
             // one_Delay
             // 
+            this.one_Delay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.one_Delay.FormattingEnabled = true;
             this.one_Delay.Location = new System.Drawing.Point(249, 55);
             this.one_Delay.Name = "one_Delay";
@@ -880,6 +894,7 @@
             // 
             // cmb_Direction
             // 
+            this.cmb_Direction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Direction.FormattingEnabled = true;
             this.cmb_Direction.Location = new System.Drawing.Point(53, 19);
             this.cmb_Direction.Name = "cmb_Direction";

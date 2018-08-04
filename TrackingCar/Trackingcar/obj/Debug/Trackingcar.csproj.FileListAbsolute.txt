@@ -31,4 +31,3 @@ C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.csprojR
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.Form1.resources
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.Properties.Resources.resources
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.csproj.GenerateResource.Cache
-C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.Form2.resources
