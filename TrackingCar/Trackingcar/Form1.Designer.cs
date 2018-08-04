@@ -61,15 +61,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.ovs_Three = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovs_Five = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovs_Seven = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovs_Eight = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovs_Six = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovs_Four = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovs_Two = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovs_One = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menu = new System.Windows.Forms.MenuStrip();
             this.平台操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,6 +114,14 @@
             this.tsl_Date = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -134,6 +133,14 @@
             this.tabControl1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -353,6 +360,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pictureBox8);
+            this.groupBox3.Controls.Add(this.pictureBox7);
+            this.groupBox3.Controls.Add(this.pictureBox6);
+            this.groupBox3.Controls.Add(this.pictureBox5);
+            this.groupBox3.Controls.Add(this.pictureBox4);
+            this.groupBox3.Controls.Add(this.pictureBox3);
+            this.groupBox3.Controls.Add(this.pictureBox2);
+            this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label14);
@@ -361,7 +376,6 @@
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.shapeContainer2);
             this.groupBox3.Location = new System.Drawing.Point(3, 238);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(222, 185);
@@ -440,120 +454,6 @@
             this.label11.Size = new System.Drawing.Size(41, 12);
             this.label11.TabIndex = 7;
             this.label11.Text = "一站：";
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(3, 17);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.ovs_Three,
-            this.ovs_Five,
-            this.ovs_Seven,
-            this.ovs_Eight,
-            this.ovs_Six,
-            this.ovs_Four,
-            this.ovs_Two,
-            this.ovs_One});
-            this.shapeContainer2.Size = new System.Drawing.Size(216, 165);
-            this.shapeContainer2.TabIndex = 8;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // ovs_Three
-            // 
-            this.ovs_Three.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_Three.FillColor = System.Drawing.Color.Lime;
-            this.ovs_Three.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Three.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_Three.Location = new System.Drawing.Point(50, 40);
-            this.ovs_Three.Name = "ovs_Three";
-            this.ovs_Three.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Three.Size = new System.Drawing.Size(20, 20);
-            this.ovs_Three.UseWaitCursor = true;
-            // 
-            // ovs_Five
-            // 
-            this.ovs_Five.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_Five.FillColor = System.Drawing.Color.Lime;
-            this.ovs_Five.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Five.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_Five.Location = new System.Drawing.Point(50, 75);
-            this.ovs_Five.Name = "ovs_Five";
-            this.ovs_Five.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Five.Size = new System.Drawing.Size(20, 20);
-            this.ovs_Five.UseWaitCursor = true;
-            // 
-            // ovs_Seven
-            // 
-            this.ovs_Seven.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_Seven.FillColor = System.Drawing.Color.Lime;
-            this.ovs_Seven.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Seven.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_Seven.Location = new System.Drawing.Point(51, 110);
-            this.ovs_Seven.Name = "ovs_Seven";
-            this.ovs_Seven.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Seven.Size = new System.Drawing.Size(20, 20);
-            this.ovs_Seven.UseWaitCursor = true;
-            // 
-            // ovs_Eight
-            // 
-            this.ovs_Eight.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_Eight.FillColor = System.Drawing.Color.Lime;
-            this.ovs_Eight.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Eight.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_Eight.Location = new System.Drawing.Point(155, 110);
-            this.ovs_Eight.Name = "ovs_Eight";
-            this.ovs_Eight.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Eight.Size = new System.Drawing.Size(20, 20);
-            this.ovs_Eight.UseWaitCursor = true;
-            // 
-            // ovs_Six
-            // 
-            this.ovs_Six.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_Six.FillColor = System.Drawing.Color.Lime;
-            this.ovs_Six.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Six.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_Six.Location = new System.Drawing.Point(155, 75);
-            this.ovs_Six.Name = "ovs_Six";
-            this.ovs_Six.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Six.Size = new System.Drawing.Size(20, 20);
-            this.ovs_Six.UseWaitCursor = true;
-            // 
-            // ovs_Four
-            // 
-            this.ovs_Four.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_Four.FillColor = System.Drawing.Color.Lime;
-            this.ovs_Four.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Four.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_Four.Location = new System.Drawing.Point(155, 40);
-            this.ovs_Four.Name = "ovs_Four";
-            this.ovs_Four.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Four.Size = new System.Drawing.Size(20, 20);
-            this.ovs_Four.UseWaitCursor = true;
-            // 
-            // ovs_Two
-            // 
-            this.ovs_Two.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_Two.FillColor = System.Drawing.Color.Lime;
-            this.ovs_Two.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Two.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_Two.Location = new System.Drawing.Point(155, 5);
-            this.ovs_Two.Name = "ovs_Two";
-            this.ovs_Two.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_Two.Size = new System.Drawing.Size(20, 20);
-            this.ovs_Two.UseWaitCursor = true;
-            // 
-            // ovs_One
-            // 
-            this.ovs_One.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ovs_One.FillColor = System.Drawing.Color.Lime;
-            this.ovs_One.FillGradientColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_One.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.ovs_One.Location = new System.Drawing.Point(50, 5);
-            this.ovs_One.Name = "ovs_One";
-            this.ovs_One.SelectionColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ovs_One.Size = new System.Drawing.Size(20, 20);
-            this.ovs_One.UseWaitCursor = true;
             // 
             // menu
             // 
@@ -1069,12 +969,82 @@
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(994, 514);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(994, 511);
             this.flowLayoutPanel4.TabIndex = 16;
-            this.flowLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel4_Paint);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(156, 136);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox8.TabIndex = 21;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(55, 136);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox7.TabIndex = 20;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(156, 95);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox6.TabIndex = 19;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(55, 97);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox5.TabIndex = 18;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(156, 61);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.TabIndex = 17;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(53, 61);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(156, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(53, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -1091,7 +1061,7 @@
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.shapeContainer1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
@@ -1116,6 +1086,14 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1141,7 +1119,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_One;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -1151,14 +1128,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_Three;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_Five;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_Seven;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_Eight;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_Six;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_Four;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovs_Two;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txt_ScrnSpeed;
         private System.Windows.Forms.TextBox txt_Person;
@@ -1216,6 +1185,14 @@
         private System.Windows.Forms.ToolStripStatusLabel tsl_Date;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }
