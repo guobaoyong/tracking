@@ -23,11 +23,13 @@ H:\program\C#\循迹小车\Trackingcar\Trackingcar\Trackingcar\bin\Debug\Trackin
 H:\program\C#\循迹小车\Trackingcar\Trackingcar\Trackingcar\obj\Debug\Trackingcar.exe
 H:\program\C#\循迹小车\Trackingcar\Trackingcar\Trackingcar\obj\Debug\Trackingcar.pdb
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\bin\Debug\Trackingcar.exe.config
-C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.exe
-C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.pdb
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\bin\Debug\Trackingcar.exe
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\bin\Debug\Trackingcar.pdb
-C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.csprojResolveAssemblyReference.cache
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.Form1.resources
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.Properties.Resources.resources
 C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.csproj.GenerateResource.Cache
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.exe
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.pdb
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\Trackingcar.csprojResolveAssemblyReference.cache
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\PreviewDemo.Preview.resources
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\Debug\PreviewDemo.PTZControl.resources

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PreviewDemo;
 
 namespace Trackingcar
 {
@@ -454,6 +455,12 @@ namespace Trackingcar
         }
 
         #endregion 
+
+        private void 摄像ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Preview p = new Preview();
+            p.Show();
+        }
 
     }
 }

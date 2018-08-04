@@ -566,6 +566,7 @@
             this.摄像ToolStripMenuItem.Name = "摄像ToolStripMenuItem";
             this.摄像ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.摄像ToolStripMenuItem.Text = "摄像";
+            this.摄像ToolStripMenuItem.Click += new System.EventHandler(this.摄像ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 

@@ -1,0 +1,10 @@
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\bin\x86\Debug\Trackingcar.exe.config
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\bin\x86\Debug\Trackingcar.exe
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\bin\x86\Debug\Trackingcar.pdb
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\x86\Debug\Trackingcar.Form1.resources
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\x86\Debug\Trackingcar.Properties.Resources.resources
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\x86\Debug\Trackingcar.csproj.GenerateResource.Cache
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\x86\Debug\Trackingcar.exe
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\x86\Debug\Trackingcar.pdb
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\x86\Debug\PreviewDemo.Preview.resources
+C:\Users\2016z\C#\tracking\TrackingCar\Trackingcar\obj\x86\Debug\PreviewDemo.PTZControl.resources
