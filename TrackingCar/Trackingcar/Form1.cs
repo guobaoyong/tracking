@@ -54,6 +54,7 @@ namespace Trackingcar
             timePresent_Init();
             status_Init();
 
+            //自定义放大
             this.Resize += new EventHandler(Form1_Resize);//执行Form1_Resize方法
             X = this.Width;
             Y = this.Height;
@@ -254,11 +255,12 @@ namespace Trackingcar
             {
                 if (Port1.IsOpen)
                 {
-                    Port_Buffer[0] = 0xf5;
-                    Port_Buffer[1] = 0xfe;  //
+                    Port_Buffer[0] = 0xf3;
+                    Port_Buffer[1] = 0xfd;  //
                     Port_Buffer[2] = 0xe1;
                     Port_Buffer[3] = 0xd1;
-                    Port_Buffer[4] = 0xfc;
+                    Port_Buffer[4] = 0xd1;
+                    Port_Buffer[5] = 0xfc;
                     Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
                 }
                 else
@@ -274,11 +276,12 @@ namespace Trackingcar
 
             if (Port1.IsOpen)
             {
-                Port_Buffer[0] = 0xf5;
-                Port_Buffer[1] = 0xfd;  //
+                Port_Buffer[0] = 0xf3;
+                Port_Buffer[1] = 0xfe;  //
                 Port_Buffer[2] = 0xe1;
                 Port_Buffer[3] = 0xd1;
-                Port_Buffer[4] = 0xfc;
+                Port_Buffer[4] = 0xd1;
+                Port_Buffer[5] = 0xfc;
                 Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
             }
             else
