@@ -14,6 +14,8 @@ namespace PreviewDemo
 	/// </summary>
 	public class Preview : System.Windows.Forms.Form
 	{
+        //初始窗体长宽
+        private float X, Y;
         private uint iLastErr = 0;
 		private Int32 m_lUserID = -1;
 		private bool m_bInitSDK = false;
@@ -38,14 +40,6 @@ namespace PreviewDemo
         private TextBox textBoxChannel;
         private Button btnRecord;
         private Button btnPTZ;
-
-        //获取系统当前时间
-        string year = DateTime.Now.Year.ToString();
-        string month = DateTime.Now.Month.ToString();
-        string day = DateTime.Now.Day.ToString();
-        string hour = DateTime.Now.Hour.ToString();
-        string minute = DateTime.Now.Minute.ToString();
-        string second = DateTime.Now.Second.ToString();
 
 		/// <summary>
 		/// 必需的设计器变量。
@@ -599,8 +593,57 @@ namespace PreviewDemo
 
         private void Preview_Load(object sender, EventArgs e)
         {
-
+            //自定义放大
+            this.Resize += new EventHandler(Form1_Resize);//执行Form1_Resize方法
+            X = this.Width;
+            Y = this.Height;
+            setTag(this);
         }
+
+        #region 自定义放大
+        private void Form1_Resize(object sender, EventArgs e) //调用Resize事件
+        {
+            float newx = (this.Width) / X;//当前宽度与变化前宽度之比
+            float newy = this.Height / Y;//当前高度与变化前宽度之比
+            setControls(newx, newy, this);
+        }
+
+
+        private void setControls(float newx, float newy, Control cons)//实现控件以及字体的缩放
+        {
+            foreach (Control con in cons.Controls)
+            {
+                string[] mytag = con.Tag.ToString().Split(new char[] { ':' });
+                float a = Convert.ToSingle(mytag[0]) * newx;
+                con.Width = (int)a;
+                a = Convert.ToSingle(mytag[1]) * newy;
+                con.Height = (int)(a);
+                a = Convert.ToSingle(mytag[2]) * newx;
+                con.Left = (int)(a);
+                a = Convert.ToSingle(mytag[3]) * newy;
+                con.Top = (int)(a);
+                Single currentSize = Convert.ToSingle(mytag[4]) * newy;
+                con.Font = new Font(con.Font.Name, currentSize, con.Font.Style, con.Font.Unit);
+                if (con.Controls.Count > 0)
+                {
+                    setControls(newx, newy, con);//递归
+                }
+            }
+        }
+
+        //获得控件的长度、宽度、位置、字体大小的数据
+        private void setTag(Control cons)//Control类，定义控件的基类
+        {
+            foreach (Control con in cons.Controls)
+            {
+                con.Tag = con.Width + ":" + con.Height + ":" + con.Left + ":" + con.Top + ":" + con.Font.Size;//获取或设置包含有关控件的数据的对象
+                if (con.Controls.Count > 0)
+                    setTag(con);//递归算法
+            }
+        }
+
+        #endregion 
+
 	}
 }
 
