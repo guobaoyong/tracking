@@ -9,11 +9,13 @@ using System.Runtime.InteropServices;
 
 namespace PreviewDemo
 {
+
     /// <summary>
     /// Form1 的摘要说明。
     /// </summary>
     public class Preview : System.Windows.Forms.Form
     {
+
         //初始窗体长宽
         private float X, Y;
         private uint iLastErr = 0;
@@ -41,13 +43,6 @@ namespace PreviewDemo
         private Button btnRecord;
         private Button btnPTZ;
 
-        //获取系统当前时间
-        string year = DateTime.Now.Year.ToString();
-        string month = DateTime.Now.Month.ToString();
-        string day = DateTime.Now.Day.ToString();
-        string hour = DateTime.Now.Hour.ToString();
-        string minute = DateTime.Now.Minute.ToString();
-        string second = DateTime.Now.Second.ToString();
         private Panel panel1;
 
         /// <summary>
@@ -66,7 +61,7 @@ namespace PreviewDemo
             if (m_bInitSDK == false)
             {
                 MessageBox.Show("NET_DVR_Init error!");
-                //return;
+
             }
             else
             {
@@ -641,8 +636,9 @@ namespace PreviewDemo
             X = this.Width;
             Y = this.Height;
             setTag(this);
-         
+
         }
+
         #region 自定义放大
         private void Form1_Resize(object sender, EventArgs e) //调用Resize事件
         {
@@ -685,11 +681,11 @@ namespace PreviewDemo
             }
         }
 
-        #endregion
 
+        #endregion 
 
+	}
 
-    }
 }
 
 
