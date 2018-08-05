@@ -27,13 +27,7 @@ namespace Trackingcar
 
         //初始窗体长宽
         private float X, Y;
-        //获取系统当前时间
-        string year = DateTime.Now.Year.ToString();
-        string month = DateTime.Now.Month.ToString();
-        string day = DateTime.Now.Day.ToString();
-        string hour = DateTime.Now.Hour.ToString();
-        string minute = DateTime.Now.Minute.ToString();
-        string second = DateTime.Now.Second.ToString();
+
         public Form1()
         {
             //初始化
@@ -59,6 +53,7 @@ namespace Trackingcar
             delayTime_Init();
             //时间初始化
             timePresent_Init();
+
             status_Init();
 
             //自定义放大
@@ -84,7 +79,7 @@ namespace Trackingcar
 
         }
 
-        //时间初始化，对应窗体最下边获取系统当前时间
+        //时间初始化，对应窗体最下边获取系统当前时间tsl_Date
         private void timePresent_Init()
         {
             string year = DateTime.Now.Year.ToString();
@@ -95,7 +90,7 @@ namespace Trackingcar
             tsl_Date.Text = "      " + year + "/" + month + "/" + day + "                                                           ";
         }
 
-        //状态初始化，对应窗体最左边小车状态
+        //状态初始化，对应窗体最左边小车状态textox
         private void status_Init()
         {
 
@@ -115,6 +110,7 @@ namespace Trackingcar
             txt_Fan.ReadOnly = true;
 
         }
+
 
         #endregion
 
@@ -166,10 +162,12 @@ namespace Trackingcar
                 if (ports.Length == 1)
                 {
                     cmb_SerialPort.Text = ports[0];
+                    cmb_BaudRate.SelectedIndex = 1;
                 }
                 else if (ports.Length > 1)
                 {
                     cmb_SerialPort.Text = ports[1];
+                    cmb_BaudRate.SelectedIndex = 1;
                 }
                 else
                 {
@@ -208,9 +206,9 @@ namespace Trackingcar
                             btn_Open.Text = "关闭串口";
 
                             btn_Auto.Text = "自动";
-                            btn_Back.Enabled = false;
-                            btn_Forward.Enabled = false;
-                            btn_Stop.Enabled = false;
+                            //btn_Back.Enabled = false;
+                            //btn_Forward.Enabled = false;
+                            //btn_Stop.Enabled = false;
                         }
                     }
                     else if (Port1.IsOpen == true)
@@ -219,10 +217,10 @@ namespace Trackingcar
                         btn_Open.Text = "打开串口";
                         tsl_Show.Text = "串口已关闭                                                                                    ";
 
-                        btn_Auto.Enabled = false;
-                        btn_Back.Enabled = false;
-                        btn_Forward.Enabled = false;
-                        btn_Stop.Enabled = false;
+                        //btn_Auto.Enabled = false;
+                        //btn_Back.Enabled = false;
+                        //btn_Forward.Enabled = false;
+                        //btn_Stop.Enabled = false;
                     }
                 }
                 catch
@@ -265,11 +263,11 @@ namespace Trackingcar
                     //方向，前进 
                     Port_Buffer[1] = 0xff;
                     //速度位
-                    Port_Buffer[2] = 0xe1;
+                    Port_Buffer[2] = 0x00;
                     //待定
-                    Port_Buffer[3] = 0xd1;
+                    Port_Buffer[3] = 0x00;
                     //待定
-                    Port_Buffer[4] = 0xfc;
+                    Port_Buffer[4] = 0x00;
                     //结束位
                     Port_Buffer[5] = 0xfc;
                     //串口写入
@@ -291,9 +289,9 @@ namespace Trackingcar
                 {
                     Port_Buffer[0] = 0xf3;
                     Port_Buffer[1] = 0xfd;  //
-                    Port_Buffer[2] = 0xe1;
-                    Port_Buffer[3] = 0xd1;
-                    Port_Buffer[4] = 0xd1;
+                    Port_Buffer[2] = 0x00;
+                    Port_Buffer[3] = 0x00;
+                    Port_Buffer[4] = 0x00;
                     Port_Buffer[5] = 0xfc;
                     Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
                 }
@@ -312,9 +310,9 @@ namespace Trackingcar
             {
                 Port_Buffer[0] = 0xf3;
                 Port_Buffer[1] = 0xfe;  //
-                Port_Buffer[2] = 0xe1;
-                Port_Buffer[3] = 0xd1;
-                Port_Buffer[4] = 0xd1;
+                Port_Buffer[2] = 0x00;
+                Port_Buffer[3] = 0x00;
+                Port_Buffer[4] = 0x00;
                 Port_Buffer[5] = 0xfc;
                 Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
             }
@@ -409,14 +407,24 @@ namespace Trackingcar
                 {
                     txt_CarSpeed.Text = Convert.ToInt32(CHAR[2]).ToString();
                     txt_Person.Text = Convert.ToInt32(CHAR[3]).ToString();
+
+                }
+                //串口数据——方向
+                if (Convert.ToInt32(CHAR[0]) == 0xf5 && Convert.ToInt32(CHAR[1]) == 0xfd && Convert.ToInt32(CHAR[7]) == 0xfc)
+                {
+                    cmb_Direction.SelectedIndex = 1;
+                }
+                else
+                {
+                    cmb_Direction.SelectedIndex = 0;
                 }
             }
         }
 
-
         #endregion
 
         #region 菜单
+
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -424,6 +432,7 @@ namespace Trackingcar
         #endregion
 
         #region 自定义放大
+
         private void Form1_Resize(object sender, EventArgs e) //调用Resize事件
         {
             float newx = (this.Width) / X;//当前宽度与变化前宽度之比
@@ -474,19 +483,57 @@ namespace Trackingcar
 
         private void btn_Auto_Click(object sender, EventArgs e)
         {
-
-            if (btn_Auto.Text == "自动")
+            if (Port1.IsOpen)
             {
+                if (btn_Auto.Text == "自动")
+                {
 
-                btn_Auto.Text = "手动";
-                btn_Back.Enabled = true;
-                btn_Forward.Enabled = true;
-                btn_Stop.Enabled = true;
+                    btn_Auto.Text = "手动";
+                    btn_Back.Enabled = true;
+                    btn_Forward.Enabled = true;
+                    btn_Stop.Enabled = true;
+                    btn_Save.Enabled = true;
+                    btn_Change.Enabled = true;
+
+
+                }
+                else
+                {
+                    btn_Auto.Text = "自动";
+                    btn_Back.Enabled = false;
+                    btn_Forward.Enabled = false;
+                    btn_Stop.Enabled = false;
+                    btn_Save.Enabled =false;
+                    btn_Change.Enabled = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请先打开串口");
+            }
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            if (Port1.IsOpen)
+            {
 
             }
             else
             {
-                return;
+                MessageBox.Show("请先打开串口");
+            }
+        }
+
+        private void btn_Change_Click(object sender, EventArgs e)
+        {
+            if (Port1.IsOpen)
+            { 
+
+            }
+            else
+            {
+                MessageBox.Show("请先打开串口");
             }
         }
 

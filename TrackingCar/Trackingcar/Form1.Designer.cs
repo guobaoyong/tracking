@@ -101,7 +101,6 @@
             this.two_Delay = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.one_Delay = new System.Windows.Forms.ComboBox();
-            this.cmb_Direction = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -133,6 +132,7 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.cmb_Direction = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -242,7 +242,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "端  口：";
+            this.label1.Text = "串  口：";
             // 
             // groupBox2
             // 
@@ -367,18 +367,18 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 92);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.Size = new System.Drawing.Size(88, 16);
             this.label6.TabIndex = 1;
-            this.label6.Text = "卡号：";
+            this.label6.Text = "卡    号：";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 21);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 16);
+            this.label5.Size = new System.Drawing.Size(88, 16);
             this.label5.TabIndex = 0;
-            this.label5.Text = "车号：";
+            this.label5.Text = "车    号：";
             // 
             // flowLayoutPanel1
             // 
@@ -820,6 +820,7 @@
             this.btn_Change.TabIndex = 31;
             this.btn_Change.Text = "修改设置";
             this.btn_Change.UseVisualStyleBackColor = false;
+            this.btn_Change.Click += new System.EventHandler(this.btn_Change_Click);
             // 
             // btn_Save
             // 
@@ -831,6 +832,7 @@
             this.btn_Save.TabIndex = 30;
             this.btn_Save.Text = "保存设置";
             this.btn_Save.UseVisualStyleBackColor = false;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // eight_Delay
             // 
@@ -920,16 +922,6 @@
             this.one_Delay.Name = "one_Delay";
             this.one_Delay.Size = new System.Drawing.Size(73, 24);
             this.one_Delay.TabIndex = 13;
-            // 
-            // cmb_Direction
-            // 
-            this.cmb_Direction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Direction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmb_Direction.FormattingEnabled = true;
-            this.cmb_Direction.Location = new System.Drawing.Point(53, 19);
-            this.cmb_Direction.Name = "cmb_Direction";
-            this.cmb_Direction.Size = new System.Drawing.Size(73, 24);
-            this.cmb_Direction.TabIndex = 1;
             // 
             // label3
             // 
@@ -1209,6 +1201,16 @@
             this.flowLayoutPanel4.Size = new System.Drawing.Size(947, 490);
             this.flowLayoutPanel4.TabIndex = 16;
             // 
+            // cmb_Direction
+            // 
+            this.cmb_Direction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Direction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_Direction.FormattingEnabled = true;
+            this.cmb_Direction.Location = new System.Drawing.Point(53, 19);
+            this.cmb_Direction.Name = "cmb_Direction";
+            this.cmb_Direction.Size = new System.Drawing.Size(73, 24);
+            this.cmb_Direction.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1312,7 +1314,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox chk_One;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmb_Direction;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
@@ -1375,6 +1376,7 @@
         private System.Windows.Forms.PictureBox pic4;
         private System.Windows.Forms.PictureBox pic3;
         private System.Windows.Forms.PictureBox pic2;
+        private System.Windows.Forms.ComboBox cmb_Direction;
 
     }
 }
