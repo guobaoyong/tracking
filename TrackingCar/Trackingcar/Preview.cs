@@ -9,20 +9,22 @@ using System.Runtime.InteropServices;
 
 namespace PreviewDemo
 {
-	/// <summary>
-	/// Form1 的摘要说明。
-	/// </summary>
-	public class Preview : System.Windows.Forms.Form
-	{
+    /// <summary>
+    /// Form1 的摘要说明。
+    /// </summary>
+    public class Preview : System.Windows.Forms.Form
+    {
+        //初始窗体长宽
+        private float X, Y;
         private uint iLastErr = 0;
-		private Int32 m_lUserID = -1;
-		private bool m_bInitSDK = false;
+        private Int32 m_lUserID = -1;
+        private bool m_bInitSDK = false;
         private bool m_bRecord = false;
-		private Int32 m_lRealHandle = -1;
+        private Int32 m_lRealHandle = -1;
         private string str;
-		private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnPreview;
-		private System.Windows.Forms.PictureBox RealPlayWnd;
+        private System.Windows.Forms.PictureBox RealPlayWnd;
         private TextBox textBoxIP;
         private TextBox textBoxPort;
         private TextBox textBoxUserName;
@@ -46,72 +48,72 @@ namespace PreviewDemo
         string hour = DateTime.Now.Hour.ToString();
         string minute = DateTime.Now.Minute.ToString();
         string second = DateTime.Now.Second.ToString();
+        private Panel panel1;
 
-		/// <summary>
-		/// 必需的设计器变量。
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+        /// <summary>
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.Container components = null;
 
-		public Preview()
-		{
-			//
-			// Windows 窗体设计器支持所必需的
-			//
-			InitializeComponent();
-			m_bInitSDK = CHCNetSDK.NET_DVR_Init();
+        public Preview()
+        {
+            //
+            // Windows 窗体设计器支持所必需的
+            //
+            InitializeComponent();
+            m_bInitSDK = CHCNetSDK.NET_DVR_Init();
 
-			if (m_bInitSDK == false)
-			{
-				MessageBox.Show("NET_DVR_Init error!");
+            if (m_bInitSDK == false)
+            {
+                MessageBox.Show("NET_DVR_Init error!");
                 //return;
-			}
-			else
-			{
+            }
+            else
+            {
                 //保存SDK日志 To save the SDK log
                 CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog\\", true);
-			}
-			//
-			// TODO: 在 InitializeComponent 调用后添加任何构造函数代码
-			//
-		}
+            }
+            //
+            // TODO: 在 InitializeComponent 调用后添加任何构造函数代码
+            //
+        }
 
-		/// <summary>
-		/// 清理所有正在使用的资源。
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if (m_lRealHandle >= 0)
-			{
-				CHCNetSDK.NET_DVR_StopRealPlay(m_lRealHandle);
-			}
-			if (m_lUserID >= 0)
-			{
-				CHCNetSDK.NET_DVR_Logout(m_lUserID);
-			}
-			if (m_bInitSDK == true)
-			{
-				CHCNetSDK.NET_DVR_Cleanup();
-			}
-			if( disposing )
-			{
-				if (components != null) 
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+        /// <summary>
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (m_lRealHandle >= 0)
+            {
+                CHCNetSDK.NET_DVR_StopRealPlay(m_lRealHandle);
+            }
+            if (m_lUserID >= 0)
+            {
+                CHCNetSDK.NET_DVR_Logout(m_lUserID);
+            }
+            if (m_bInitSDK == true)
+            {
+                CHCNetSDK.NET_DVR_Cleanup();
+            }
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows 窗体设计器生成的代码
-		/// <summary>
-		/// 设计器支持所需的方法 - 不要使用代码编辑器修改
-		/// 此方法的内容。
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows 窗体设计器生成的代码
+        /// <summary>
+        /// 设计器支持所需的方法 - 不要使用代码编辑器修改
+        /// 此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnPreview = new System.Windows.Forms.Button();
-            this.RealPlayWnd = new System.Windows.Forms.PictureBox();
             this.textBoxIP = new System.Windows.Forms.TextBox();
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
@@ -127,39 +129,40 @@ namespace PreviewDemo
             this.textBoxChannel = new System.Windows.Forms.TextBox();
             this.btnRecord = new System.Windows.Forms.Button();
             this.btnPTZ = new System.Windows.Forms.Button();
+            this.RealPlayWnd = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.RealPlayWnd)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(435, 38);
+            this.btnLogin.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogin.Location = new System.Drawing.Point(7, 54);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(78, 50);
+            this.btnLogin.Size = new System.Drawing.Size(84, 35);
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "连接";
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(17, 571);
+            this.btnPreview.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPreview.Location = new System.Drawing.Point(97, 54);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(76, 34);
+            this.btnPreview.Size = new System.Drawing.Size(80, 35);
             this.btnPreview.TabIndex = 7;
             this.btnPreview.Text = "开启预览";
+            this.btnPreview.UseVisualStyleBackColor = false;
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
-            // 
-            // RealPlayWnd
-            // 
-            this.RealPlayWnd.BackColor = System.Drawing.SystemColors.WindowText;
-            this.RealPlayWnd.Location = new System.Drawing.Point(18, 104);
-            this.RealPlayWnd.Name = "RealPlayWnd";
-            this.RealPlayWnd.Size = new System.Drawing.Size(495, 395);
-            this.RealPlayWnd.TabIndex = 4;
-            this.RealPlayWnd.TabStop = false;
             // 
             // textBoxIP
             // 
-            this.textBoxIP.Location = new System.Drawing.Point(78, 24);
+            this.textBoxIP.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxIP.Location = new System.Drawing.Point(58, 6);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.ReadOnly = true;
             this.textBoxIP.Size = new System.Drawing.Size(114, 21);
@@ -168,7 +171,8 @@ namespace PreviewDemo
             // 
             // textBoxPort
             // 
-            this.textBoxPort.Location = new System.Drawing.Point(308, 24);
+            this.textBoxPort.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxPort.Location = new System.Drawing.Point(269, 6);
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.ReadOnly = true;
             this.textBoxPort.Size = new System.Drawing.Size(112, 21);
@@ -177,7 +181,8 @@ namespace PreviewDemo
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(78, 70);
+            this.textBoxUserName.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxUserName.Location = new System.Drawing.Point(58, 29);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.ReadOnly = true;
             this.textBoxUserName.Size = new System.Drawing.Size(114, 21);
@@ -186,8 +191,9 @@ namespace PreviewDemo
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxPassword.Location = new System.Drawing.Point(308, 70);
+            this.textBoxPassword.Location = new System.Drawing.Point(269, 29);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.ReadOnly = true;
@@ -198,71 +204,75 @@ namespace PreviewDemo
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 27);
+            this.label5.Location = new System.Drawing.Point(5, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.Size = new System.Drawing.Size(47, 12);
             this.label5.TabIndex = 9;
-            this.label5.Text = "设备IP";
+            this.label5.Text = "设备IP:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(236, 27);
+            this.label6.Location = new System.Drawing.Point(204, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(59, 12);
             this.label6.TabIndex = 10;
-            this.label6.Text = "设备端口";
+            this.label6.Text = "设备端口:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 76);
+            this.label7.Location = new System.Drawing.Point(5, 32);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.Size = new System.Drawing.Size(47, 12);
             this.label7.TabIndex = 11;
-            this.label7.Text = "用户名";
+            this.label7.Text = "用户名:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(238, 76);
+            this.label8.Location = new System.Drawing.Point(204, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.Size = new System.Drawing.Size(59, 12);
             this.label8.TabIndex = 12;
-            this.label8.Text = "密码";
+            this.label8.Text = "密    码:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 550);
+            this.label9.Location = new System.Drawing.Point(5, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 12);
             this.label9.TabIndex = 13;
             // 
             // btnBMP
             // 
-            this.btnBMP.Location = new System.Drawing.Point(110, 572);
+            this.btnBMP.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnBMP.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBMP.Location = new System.Drawing.Point(441, 54);
             this.btnBMP.Name = "btnBMP";
-            this.btnBMP.Size = new System.Drawing.Size(79, 34);
+            this.btnBMP.Size = new System.Drawing.Size(80, 35);
             this.btnBMP.TabIndex = 8;
             this.btnBMP.Text = "BMP抓图";
-            this.btnBMP.UseVisualStyleBackColor = true;
+            this.btnBMP.UseVisualStyleBackColor = false;
             this.btnBMP.Click += new System.EventHandler(this.btnBMP_Click);
             // 
             // btnJPEG
             // 
-            this.btnJPEG.Location = new System.Drawing.Point(208, 571);
+            this.btnJPEG.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnJPEG.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnJPEG.Location = new System.Drawing.Point(269, 54);
             this.btnJPEG.Name = "btnJPEG";
-            this.btnJPEG.Size = new System.Drawing.Size(97, 34);
+            this.btnJPEG.Size = new System.Drawing.Size(80, 35);
             this.btnJPEG.TabIndex = 9;
             this.btnJPEG.Text = "JPEG抓图";
-            this.btnJPEG.UseVisualStyleBackColor = true;
+            this.btnJPEG.UseVisualStyleBackColor = false;
             this.btnJPEG.Click += new System.EventHandler(this.btnJPEG_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(18, 526);
+            this.label13.Location = new System.Drawing.Point(404, 6);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 12);
             this.label13.TabIndex = 19;
@@ -270,7 +280,8 @@ namespace PreviewDemo
             // 
             // textBoxChannel
             // 
-            this.textBoxChannel.Location = new System.Drawing.Point(107, 523);
+            this.textBoxChannel.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxChannel.Location = new System.Drawing.Point(406, 27);
             this.textBoxChannel.Name = "textBoxChannel";
             this.textBoxChannel.ReadOnly = true;
             this.textBoxChannel.Size = new System.Drawing.Size(85, 21);
@@ -279,56 +290,81 @@ namespace PreviewDemo
             // 
             // btnRecord
             // 
-            this.btnRecord.Location = new System.Drawing.Point(319, 571);
+            this.btnRecord.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnRecord.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRecord.Location = new System.Drawing.Point(183, 54);
             this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(100, 34);
+            this.btnRecord.Size = new System.Drawing.Size(80, 35);
             this.btnRecord.TabIndex = 10;
             this.btnRecord.Text = "开始录像";
-            this.btnRecord.UseVisualStyleBackColor = true;
+            this.btnRecord.UseVisualStyleBackColor = false;
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // btnPTZ
             // 
-            this.btnPTZ.Location = new System.Drawing.Point(438, 571);
+            this.btnPTZ.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnPTZ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPTZ.Location = new System.Drawing.Point(355, 54);
             this.btnPTZ.Name = "btnPTZ";
-            this.btnPTZ.Size = new System.Drawing.Size(75, 34);
+            this.btnPTZ.Size = new System.Drawing.Size(80, 35);
             this.btnPTZ.TabIndex = 23;
             this.btnPTZ.Text = "云台控制";
-            this.btnPTZ.UseVisualStyleBackColor = true;
+            this.btnPTZ.UseVisualStyleBackColor = false;
             this.btnPTZ.Click += new System.EventHandler(this.btnPTZ_Click);
+            // 
+            // RealPlayWnd
+            // 
+            this.RealPlayWnd.BackColor = System.Drawing.SystemColors.WindowText;
+            this.RealPlayWnd.Location = new System.Drawing.Point(3, 93);
+            this.RealPlayWnd.Name = "RealPlayWnd";
+            this.RealPlayWnd.Size = new System.Drawing.Size(521, 358);
+            this.RealPlayWnd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RealPlayWnd.TabIndex = 4;
+            this.RealPlayWnd.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.RealPlayWnd);
+            this.panel1.Controls.Add(this.btnLogin);
+            this.panel1.Controls.Add(this.btnBMP);
+            this.panel1.Controls.Add(this.btnPTZ);
+            this.panel1.Controls.Add(this.btnRecord);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.btnJPEG);
+            this.panel1.Controls.Add(this.textBoxChannel);
+            this.panel1.Controls.Add(this.btnPreview);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.textBoxPassword);
+            this.panel1.Controls.Add(this.textBoxUserName);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.textBoxPort);
+            this.panel1.Controls.Add(this.textBoxIP);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(526, 454);
+            this.panel1.TabIndex = 24;
             // 
             // Preview
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
-            this.ClientSize = new System.Drawing.Size(531, 657);
-            this.Controls.Add(this.btnPTZ);
-            this.Controls.Add(this.btnRecord);
-            this.Controls.Add(this.textBoxChannel);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.btnJPEG);
-            this.Controls.Add(this.btnBMP);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.textBoxUserName);
-            this.Controls.Add(this.textBoxPort);
-            this.Controls.Add(this.textBoxIP);
-            this.Controls.Add(this.RealPlayWnd);
-            this.Controls.Add(this.btnPreview);
-            this.Controls.Add(this.btnLogin);
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ClientSize = new System.Drawing.Size(526, 454);
+            this.Controls.Add(this.panel1);
             this.Name = "Preview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "摄像头操作";
             this.Load += new System.EventHandler(this.Preview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RealPlayWnd)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
-		}
-		#endregion
+        }
+        #endregion
 
         ///// <summary>
         ///// 应用程序的主入口点。
@@ -339,19 +375,19 @@ namespace PreviewDemo
         //    Application.Run(new Preview());
         //}
 
-		private void textBox1_TextChanged(object sender, System.EventArgs e)
-		{
-		
-		}
+        private void textBox1_TextChanged(object sender, System.EventArgs e)
+        {
 
-		private void btnLogin_Click(object sender, System.EventArgs e)
-		{
-			if (textBoxIP.Text == "" || textBoxPort.Text == "" ||
-				textBoxUserName.Text == "" || textBoxPassword.Text == "")
-			{
-				MessageBox.Show("请输入IP，端口号，登录名和密码");
-				return;
-			}
+        }
+
+        private void btnLogin_Click(object sender, System.EventArgs e)
+        {
+            if (textBoxIP.Text == "" || textBoxPort.Text == "" ||
+                textBoxUserName.Text == "" || textBoxPassword.Text == "")
+            {
+                MessageBox.Show("请输入IP，端口号，登录名和密码");
+                return;
+            }
             if (m_lUserID < 0)
             {
                 string DVRIPAddress = textBoxIP.Text; //设备IP地址或者域名
@@ -375,6 +411,7 @@ namespace PreviewDemo
                     //登录成功
                     MessageBox.Show("连接成功!");
                     btnLogin.Text = "断开连接";
+                  
                 }
 
             }
@@ -392,17 +429,17 @@ namespace PreviewDemo
                     iLastErr = CHCNetSDK.NET_DVR_GetLastError();
                     str = "断开连接失败, 错误号= " + iLastErr;
                     MessageBox.Show(str);
-                    return;           
+                    return;
                 }
                 m_lUserID = -1;
                 btnLogin.Text = "连接";
             }
             return;
-		}
+        }
 
-		private void btnPreview_Click(object sender, System.EventArgs e)
-		{
-            if(m_lUserID < 0)
+        private void btnPreview_Click(object sender, System.EventArgs e)
+        {
+            if (m_lUserID < 0)
             {
                 MessageBox.Show("请先连接后再进行操作");
                 return;
@@ -451,11 +488,11 @@ namespace PreviewDemo
 
             }
             return;
-		}
+        }
 
-		public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
-		{
-		}
+        public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, ref byte pBuffer, UInt32 dwBufSize, IntPtr pUser)
+        {
+        }
 
         private void btnBMP_Click(object sender, EventArgs e)
         {
@@ -463,9 +500,9 @@ namespace PreviewDemo
             currentTime = System.DateTime.Now;
             string sBmpPicFileName;
             //图片保存路径和文件名 the path and file name to save
-            sBmpPicFileName = currentTime.Year + "_" + currentTime.Month + "_" + 
-                currentTime.Day + "_" + currentTime.Hour + "_"+currentTime.Minute+
-                "_"+currentTime.Second+"-"+"BMP_test.bmp"; 
+            sBmpPicFileName = currentTime.Year + "_" + currentTime.Month + "_" +
+                currentTime.Day + "_" + currentTime.Hour + "_" + currentTime.Minute +
+                "_" + currentTime.Second + "-" + "BMP_test.bmp";
 
             //BMP抓图 Capture a BMP picture
             if (!CHCNetSDK.NET_DVR_CapturePicture(m_lRealHandle, sBmpPicFileName))
@@ -478,7 +515,7 @@ namespace PreviewDemo
             else
             {
                 str = "BMP抓图成功，图片名称为" + sBmpPicFileName;
-                MessageBox.Show(str); 
+                MessageBox.Show(str);
             }
             return;
         }
@@ -540,7 +577,7 @@ namespace PreviewDemo
                     return;
                 }
                 else
-                {                  
+                {
                     btnRecord.Text = "停止录像";
                     m_bRecord = true;
                 }
@@ -561,7 +598,7 @@ namespace PreviewDemo
                     MessageBox.Show(str);
                     btnRecord.Text = "开始录像";
                     m_bRecord = false;
-                }            
+                }
             }
 
             return;
@@ -599,9 +636,60 @@ namespace PreviewDemo
 
         private void Preview_Load(object sender, EventArgs e)
         {
-
+            //自定义放大
+            this.Resize += new EventHandler(Form1_Resize);//执行Form1_Resize方法
+            X = this.Width;
+            Y = this.Height;
+            setTag(this);
+         
         }
-	}
+        #region 自定义放大
+        private void Form1_Resize(object sender, EventArgs e) //调用Resize事件
+        {
+            float newx = (this.Width) / X;//当前宽度与变化前宽度之比
+            float newy = this.Height / Y;//当前高度与变化前宽度之比
+            setControls(newx, newy, this);
+        }
+
+
+        private void setControls(float newx, float newy, Control cons)//实现控件以及字体的缩放
+        {
+            foreach (Control con in cons.Controls)
+            {
+                string[] mytag = con.Tag.ToString().Split(new char[] { ':' });
+                float a = Convert.ToSingle(mytag[0]) * newx;
+                con.Width = (int)a;
+                a = Convert.ToSingle(mytag[1]) * newy;
+                con.Height = (int)(a);
+                a = Convert.ToSingle(mytag[2]) * newx;
+                con.Left = (int)(a);
+                a = Convert.ToSingle(mytag[3]) * newy;
+                con.Top = (int)(a);
+                Single currentSize = Convert.ToSingle(mytag[4]) * newy;
+                con.Font = new Font(con.Font.Name, currentSize, con.Font.Style, con.Font.Unit);
+                if (con.Controls.Count > 0)
+                {
+                    setControls(newx, newy, con);//递归
+                }
+            }
+        }
+
+        //获得控件的长度、宽度、位置、字体大小的数据
+        private void setTag(Control cons)//Control类，定义控件的基类
+        {
+            foreach (Control con in cons.Controls)
+            {
+                con.Tag = con.Width + ":" + con.Height + ":" + con.Left + ":" + con.Top + ":" + con.Font.Size;//获取或设置包含有关控件的数据的对象
+                if (con.Controls.Count > 0)
+                    setTag(con);//递归算法
+            }
+        }
+
+        #endregion
+
+
+
+    }
 }
 
 

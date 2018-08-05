@@ -95,6 +95,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="PTZControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,14 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="PTZControl.resx">
       <DependentUpon>PTZControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,13 +151,64 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Image\green.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Image\red.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\trick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\green8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\red8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

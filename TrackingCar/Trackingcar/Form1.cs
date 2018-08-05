@@ -27,14 +27,20 @@ namespace Trackingcar
 
         //初始窗体长宽
         private float X, Y;
-
+        //获取系统当前时间
+        string year = DateTime.Now.Year.ToString();
+        string month = DateTime.Now.Month.ToString();
+        string day = DateTime.Now.Day.ToString();
+        string hour = DateTime.Now.Hour.ToString();
+        string minute = DateTime.Now.Minute.ToString();
+        string second = DateTime.Now.Second.ToString();
         public Form1()
         {
             //初始化
             InitializeComponent();
 
             //防止跨线程访问出错，好多地方会用到
-            Control.CheckForIllegalCrossThreadCalls = false;  
+            Control.CheckForIllegalCrossThreadCalls = false;
 
         }
 
@@ -170,7 +176,7 @@ namespace Trackingcar
                     MessageBox.Show("没有发现可用端口！");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return;
             }
@@ -201,16 +207,19 @@ namespace Trackingcar
                             tsl_Show.Text = cmb_SerialPort.Text + " 串口已打开                                                                                     ";
                             btn_Open.Text = "关闭串口";
 
-                            btn_Back.Enabled = true;
-                            btn_Forward.Enabled = true;
-                            btn_Stop.Enabled = true;
+                            btn_Auto.Text = "自动";
+                            btn_Back.Enabled = false;
+                            btn_Forward.Enabled = false;
+                            btn_Stop.Enabled = false;
                         }
                     }
                     else if (Port1.IsOpen == true)
                     {
                         Port1.Close();
                         btn_Open.Text = "打开串口";
-                        tsl_Show.Text = "串口已关闭                                                                                     ";
+                        tsl_Show.Text = "串口已关闭                                                                                    ";
+
+                        btn_Auto.Enabled = false;
                         btn_Back.Enabled = false;
                         btn_Forward.Enabled = false;
                         btn_Stop.Enabled = false;
@@ -320,9 +329,10 @@ namespace Trackingcar
         #region 接收数据
 
         //声明委托
-        public delegate void TichText(); 
+        public delegate void TichText();
         //接受下位机传的数据拼接
         string strx;
+
         StringBuilder builder = new StringBuilder();
         //接受8个数据位
         char[] CHAR = new char[8];
@@ -349,6 +359,7 @@ namespace Trackingcar
                     while (Port1.BytesToRead > 0)
                     {
                         CH = (char)Port1.ReadByte();
+
                         builder.Append(CH);
                     }
                 }
@@ -362,7 +373,7 @@ namespace Trackingcar
         }
 
         //用于数据处理
-        public void Deleg()   
+        public void Deleg()
         {
             strx = builder.ToString();
 
@@ -402,7 +413,7 @@ namespace Trackingcar
             }
         }
 
-        
+
         #endregion
 
         #region 菜单
@@ -419,7 +430,6 @@ namespace Trackingcar
             float newy = this.Height / Y;//当前高度与变化前宽度之比
             setControls(newx, newy, this);
         }
-
 
         private void setControls(float newx, float newy, Control cons)//实现控件以及字体的缩放
         {
@@ -454,12 +464,30 @@ namespace Trackingcar
             }
         }
 
-        #endregion 
+        #endregion
 
         private void 摄像ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Preview p = new Preview();
             p.Show();
+        }
+
+        private void btn_Auto_Click(object sender, EventArgs e)
+        {
+
+            if (btn_Auto.Text == "自动")
+            {
+
+                btn_Auto.Text = "手动";
+                btn_Back.Enabled = true;
+                btn_Forward.Enabled = true;
+                btn_Stop.Enabled = true;
+
+            }
+            else
+            {
+                return;
+            }
         }
 
     }
