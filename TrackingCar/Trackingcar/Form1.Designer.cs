@@ -101,6 +101,7 @@
             this.two_Delay = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.one_Delay = new System.Windows.Forms.ComboBox();
+            this.cmb_Direction = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -130,9 +131,14 @@
             this.tsl_Date = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
-            this.cmb_Direction = new System.Windows.Forms.ComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList4 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList5 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList6 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList7 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList8 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -923,6 +929,16 @@
             this.one_Delay.Size = new System.Drawing.Size(73, 24);
             this.one_Delay.TabIndex = 13;
             // 
+            // cmb_Direction
+            // 
+            this.cmb_Direction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Direction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_Direction.FormattingEnabled = true;
+            this.cmb_Direction.Location = new System.Drawing.Point(53, 19);
+            this.cmb_Direction.Name = "cmb_Direction";
+            this.cmb_Direction.Size = new System.Drawing.Size(73, 24);
+            this.cmb_Direction.TabIndex = 1;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -1063,7 +1079,7 @@
             // pic8
             // 
             this.pic8.Image = global::Trackingcar.Properties.Resources.green8;
-            this.pic8.Location = new System.Drawing.Point(68, 213);
+            this.pic8.Location = new System.Drawing.Point(68, 209);
             this.pic8.Name = "pic8";
             this.pic8.Size = new System.Drawing.Size(20, 20);
             this.pic8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1073,7 +1089,7 @@
             // pic7
             // 
             this.pic7.Image = global::Trackingcar.Properties.Resources.green7;
-            this.pic7.Location = new System.Drawing.Point(144, 213);
+            this.pic7.Location = new System.Drawing.Point(144, 209);
             this.pic7.Name = "pic7";
             this.pic7.Size = new System.Drawing.Size(20, 20);
             this.pic7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1083,7 +1099,7 @@
             // pic6
             // 
             this.pic6.Image = global::Trackingcar.Properties.Resources.green6;
-            this.pic6.Location = new System.Drawing.Point(220, 213);
+            this.pic6.Location = new System.Drawing.Point(220, 209);
             this.pic6.Name = "pic6";
             this.pic6.Size = new System.Drawing.Size(20, 20);
             this.pic6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1093,7 +1109,7 @@
             // pic5
             // 
             this.pic5.Image = global::Trackingcar.Properties.Resources.green5;
-            this.pic5.Location = new System.Drawing.Point(294, 213);
+            this.pic5.Location = new System.Drawing.Point(294, 209);
             this.pic5.Name = "pic5";
             this.pic5.Size = new System.Drawing.Size(20, 20);
             this.pic5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1103,7 +1119,7 @@
             // pic4
             // 
             this.pic4.Image = global::Trackingcar.Properties.Resources.green4;
-            this.pic4.Location = new System.Drawing.Point(294, 51);
+            this.pic4.Location = new System.Drawing.Point(294, 42);
             this.pic4.Name = "pic4";
             this.pic4.Size = new System.Drawing.Size(20, 20);
             this.pic4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1113,7 +1129,7 @@
             // pic3
             // 
             this.pic3.Image = global::Trackingcar.Properties.Resources.green3;
-            this.pic3.Location = new System.Drawing.Point(220, 51);
+            this.pic3.Location = new System.Drawing.Point(220, 41);
             this.pic3.Name = "pic3";
             this.pic3.Size = new System.Drawing.Size(20, 20);
             this.pic3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1123,7 +1139,7 @@
             // pic2
             // 
             this.pic2.Image = global::Trackingcar.Properties.Resources.green2;
-            this.pic2.Location = new System.Drawing.Point(144, 51);
+            this.pic2.Location = new System.Drawing.Point(144, 41);
             this.pic2.Name = "pic2";
             this.pic2.Size = new System.Drawing.Size(20, 20);
             this.pic2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1133,7 +1149,7 @@
             // pic1
             // 
             this.pic1.Image = global::Trackingcar.Properties.Resources.green1;
-            this.pic1.Location = new System.Drawing.Point(68, 51);
+            this.pic1.Location = new System.Drawing.Point(68, 41);
             this.pic1.Name = "pic1";
             this.pic1.Size = new System.Drawing.Size(20, 20);
             this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1143,7 +1159,7 @@
             // pic_trackLine
             // 
             this.pic_trackLine.Image = ((System.Drawing.Image)(resources.GetObject("pic_trackLine.Image")));
-            this.pic_trackLine.Location = new System.Drawing.Point(0, 31);
+            this.pic_trackLine.Location = new System.Drawing.Point(3, 24);
             this.pic_trackLine.Name = "pic_trackLine";
             this.pic_trackLine.Size = new System.Drawing.Size(383, 236);
             this.pic_trackLine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1201,15 +1217,61 @@
             this.flowLayoutPanel4.Size = new System.Drawing.Size(947, 490);
             this.flowLayoutPanel4.TabIndex = 16;
             // 
-            // cmb_Direction
+            // imageList1
             // 
-            this.cmb_Direction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Direction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmb_Direction.FormattingEnabled = true;
-            this.cmb_Direction.Location = new System.Drawing.Point(53, 19);
-            this.cmb_Direction.Name = "cmb_Direction";
-            this.cmb_Direction.Size = new System.Drawing.Size(73, 24);
-            this.cmb_Direction.TabIndex = 1;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "green.png");
+            this.imageList1.Images.SetKeyName(1, "red.png");
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "green2.png");
+            this.imageList2.Images.SetKeyName(1, "red2.png");
+            // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "green3.png");
+            this.imageList3.Images.SetKeyName(1, "red3.png");
+            // 
+            // imageList4
+            // 
+            this.imageList4.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList4.ImageStream")));
+            this.imageList4.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList4.Images.SetKeyName(0, "green4.png");
+            this.imageList4.Images.SetKeyName(1, "red4.png");
+            // 
+            // imageList5
+            // 
+            this.imageList5.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList5.ImageStream")));
+            this.imageList5.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList5.Images.SetKeyName(0, "green5.png");
+            this.imageList5.Images.SetKeyName(1, "red5.png");
+            // 
+            // imageList6
+            // 
+            this.imageList6.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList6.ImageStream")));
+            this.imageList6.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList6.Images.SetKeyName(0, "green6.png");
+            this.imageList6.Images.SetKeyName(1, "red6.png");
+            // 
+            // imageList7
+            // 
+            this.imageList7.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList7.ImageStream")));
+            this.imageList7.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList7.Images.SetKeyName(0, "green7.png");
+            this.imageList7.Images.SetKeyName(1, "red7.png");
+            // 
+            // imageList8
+            // 
+            this.imageList8.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList8.ImageStream")));
+            this.imageList8.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList8.Images.SetKeyName(0, "green8.png");
+            this.imageList8.Images.SetKeyName(1, "red8.png");
             // 
             // Form1
             // 
@@ -1365,10 +1427,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_Auto;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.PictureBox pic_trackLine;
         private System.Windows.Forms.PictureBox pic1;
-        private System.Windows.Forms.ColorDialog colorDialog2;
         private System.Windows.Forms.PictureBox pic8;
         private System.Windows.Forms.PictureBox pic7;
         private System.Windows.Forms.PictureBox pic6;
@@ -1377,6 +1437,14 @@
         private System.Windows.Forms.PictureBox pic3;
         private System.Windows.Forms.PictureBox pic2;
         private System.Windows.Forms.ComboBox cmb_Direction;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.ImageList imageList3;
+        private System.Windows.Forms.ImageList imageList4;
+        private System.Windows.Forms.ImageList imageList5;
+        private System.Windows.Forms.ImageList imageList6;
+        private System.Windows.Forms.ImageList imageList7;
+        private System.Windows.Forms.ImageList imageList8;
 
     }
 }

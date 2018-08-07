@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PreviewDemo;
+using System.Threading;
 
 namespace Trackingcar
 {
@@ -22,29 +23,35 @@ namespace Trackingcar
         //private static extern bool WritePrivateProfileString(string section, string key, string val, string filePath);
         //[DllImport("kernel32")]
 
+        #region 自定义变量
         //发送状态
-        public bool Send_status = true;
-
+        public bool Send_status = false;
         //初始窗体长宽
         private float X, Y;
+        //路线
+        public int led_Choosed;
+        //串行端口实例化
+        SerialPort Port1 = new SerialPort();
+        //定义线程
+        Thread th;
+        //波特率
+        public int BaudRate;
+
+        byte[] Port_Buffer = new byte[6];
+
+        #endregion
 
         public Form1()
         {
             //初始化
             InitializeComponent();
-
             //防止跨线程访问出错，好多地方会用到
             Control.CheckForIllegalCrossThreadCalls = false;
 
         }
 
-        //串行端口实例化
-        SerialPort Port1 = new SerialPort();
+        #region 主窗体
 
-        //波特率
-        public int BaudRate;
-
-        //主窗体
         private void Form1_Load(object sender, EventArgs e)
         {
             //初始化
@@ -53,16 +60,20 @@ namespace Trackingcar
             delayTime_Init();
             //时间初始化
             timePresent_Init();
-
+            //数据初始化
             status_Init();
-
+            //站点灯初始化
+            pic_Init();
             //自定义放大
             this.Resize += new EventHandler(Form1_Resize);//执行Form1_Resize方法
             X = this.Width;
             Y = this.Height;
             setTag(this);
 
+
         }
+
+        #endregion
 
         #region 初始化
 
@@ -111,15 +122,9 @@ namespace Trackingcar
 
         }
 
-
-        #endregion
-
-        #region 延时下拉框
-
         //延时方法，对应窗体右边延时区
         private void delayTime_Init()
         {
-
             for (int i = 0; i < 100; i++)
             {
                 one_Delay.Items.Add(i + " 分钟");
@@ -142,6 +147,19 @@ namespace Trackingcar
 
         }
 
+        //站点灯初始化
+        private void pic_Init()
+        {
+            pic1.Image = Properties.Resources.green1;
+            pic2.Image = Properties.Resources.green2;
+            pic3.Image = Properties.Resources.green3;
+            pic4.Image = Properties.Resources.green4;
+            pic5.Image = Properties.Resources.green5;
+            pic6.Image = Properties.Resources.green6;
+            pic7.Image = Properties.Resources.green7;
+            pic8.Image = Properties.Resources.green8;
+
+        }
 
         #endregion
 
@@ -179,149 +197,8 @@ namespace Trackingcar
                 return;
             }
         }
-        bool Send_Status = false;
-        //串口打开
-        private void btn_Open_Click(object sender, EventArgs e)
-        {
-            if (cmb_SerialPort.Items.Count != 0)
-            {
-                try
-                {
-                    if (btn_Open.Text == "打开串口")
-                    {
-                        if (Port1.IsOpen == false)
-                        {
-                            Port1.PortName = cmb_SerialPort.Text;
-                            Port1.BaudRate = Convert.ToInt32(cmb_BaudRate.Text);
-                            Port1.Handshake = Handshake.None;
-                            Port1.Parity = Parity.None;
-                            Port1.DataBits = 8;
-                            Port1.StopBits = StopBits.One;
-                            Port1.RtsEnable = true;
-                            Send_Status = true;
 
-                            Port1.Open();
-                            MessageBox.Show("打开成功！");
-                            tsl_Show.Text = cmb_SerialPort.Text + " 串口已打开                                                                                     ";
-                            btn_Open.Text = "关闭串口";
 
-                            btn_Auto.Text = "自动";
-                            //btn_Back.Enabled = false;
-                            //btn_Forward.Enabled = false;
-                            //btn_Stop.Enabled = false;
-                        }
-                    }
-                    else if (Port1.IsOpen == true)
-                    {
-                        Port1.Close();
-                        btn_Open.Text = "打开串口";
-                        tsl_Show.Text = "串口已关闭                                                                                    ";
-
-                        //btn_Auto.Enabled = false;
-                        //btn_Back.Enabled = false;
-                        //btn_Forward.Enabled = false;
-                        //btn_Stop.Enabled = false;
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("端口打开失败，请检查端口是否被占用！", "错误提示");
-                }
-            }
-            else
-            {
-                MessageBox.Show("没有发现可用端口！", "错误提示");
-            }
-        }
-
-        ////串口检测
-        private void btn_Search_Click(object sender, EventArgs e)
-        {
-            //从combobox1中移除所有项
-            cmb_SerialPort.Items.Clear();
-
-            SearchPort();
-        }
-
-        #endregion
-
-        #region 控制小车
-
-        byte[] Port_Buffer = new byte[6];
-
-        //前进 
-        //用串口发送数据 
-        //0xff
-        private void btn_Forward_Click(object sender, EventArgs e)
-        {
-            if (Send_status)
-            {
-                if (Port1.IsOpen)
-                {
-                    //开始位
-                    Port_Buffer[0] = 0xf3;
-                    //方向，前进 
-                    Port_Buffer[1] = 0xff;
-                    //速度位
-                    Port_Buffer[2] = 0x00;
-                    //待定
-                    Port_Buffer[3] = 0x00;
-                    //待定
-                    Port_Buffer[4] = 0x00;
-                    //结束位
-                    Port_Buffer[5] = 0xfc;
-                    //串口写入
-                    Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
-                }
-                else
-                {
-                    MessageBox.Show("请先打开串口");
-                }
-            }
-        }
-
-        //后退
-        private void btn_Back_Click(object sender, EventArgs e)
-        {
-            if (Send_status)
-            {
-                if (Port1.IsOpen)
-                {
-                    Port_Buffer[0] = 0xf3;
-                    Port_Buffer[1] = 0xfd;  //
-                    Port_Buffer[2] = 0x00;
-                    Port_Buffer[3] = 0x00;
-                    Port_Buffer[4] = 0x00;
-                    Port_Buffer[5] = 0xfc;
-                    Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
-                }
-                else
-                {
-                    MessageBox.Show("请先打开串口");
-                }
-            }
-        }
-
-        private void btn_Stop_Click(object sender, EventArgs e)//停止
-        {
-            Send_status = true;
-
-            if (Port1.IsOpen)
-            {
-                Port_Buffer[0] = 0xf3;
-                Port_Buffer[1] = 0xfe;  //
-                Port_Buffer[2] = 0x00;
-                Port_Buffer[3] = 0x00;
-                Port_Buffer[4] = 0x00;
-                Port_Buffer[5] = 0xfc;
-                Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
-            }
-            else
-            {
-                MessageBox.Show("请先打开串口");
-            }
-
-        }
         #endregion
 
         #region 接收数据
@@ -337,6 +214,7 @@ namespace Trackingcar
         //字节长度
         int BytCount;
         //串口数据接收
+
         private void Port1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             //将Deleg方法委托给TichText
@@ -475,12 +353,160 @@ namespace Trackingcar
 
         #endregion
 
+        #region 闪烁
+
+        public void RunImage()
+        {
+            switch (led_Choosed)
+            {
+                case 1:
+                    while (true) //循环
+                    {
+                        for (int i = 0; i < imageList1.Images.Count; i++)
+                        {  
+                            pic1.Image = imageList1.Images[i];
+                            Thread.Sleep(1000);
+                        }
+                    }
+                
+                 
+                case 2:
+                    while (true) //循环
+                    {
+                        for (int i = 0; i < imageList1.Images.Count; i++)
+                        {
+                            pic2.Image = imageList1.Images[i];
+                            Thread.Sleep(1000);
+                        }
+                    }
+                case 3:
+                    while (true) //循环
+                    {
+                        for (int i = 0; i < imageList1.Images.Count; i++)
+                        {
+                            pic3.Image = imageList1.Images[i];
+                            Thread.Sleep(1000);
+                        }
+                    }
+                case 4:
+                    while (true) //循环
+                    {
+                        for (int i = 0; i < imageList1.Images.Count; i++)
+                        {
+                            pic4.Image = imageList1.Images[i];
+                            Thread.Sleep(1000);
+                        }
+                    }
+
+                    case 5:
+                        while (true) //循环
+                        {
+                            for (int i = 0; i < imageList1.Images.Count; i++)
+                            {
+                                pic5.Image = imageList1.Images[i];
+                                Thread.Sleep(1000);
+                            }
+
+
+                        }
+                    case 6:
+                        while (true) //循环
+                        {
+                            for (int i = 0; i < imageList1.Images.Count; i++)
+                            {
+                                pic6.Image = imageList1.Images[i];
+                                Thread.Sleep(1000);
+                            }
+                        }
+                    case 7:
+                        while (true) //循环
+                        {
+                            for (int i = 0; i < imageList1.Images.Count; i++)
+                            {
+                                pic7.Image = imageList1.Images[i];
+                                Thread.Sleep(1000);
+                            }
+                        }
+                    case 8:
+                        while (true) //循环
+                        {
+                            for (int i = 0; i < imageList1.Images.Count; i++)
+                            {
+                                pic8.Image = imageList1.Images[i];
+                                Thread.Sleep(1000);
+                            }
+                        }
+                        break;
+                default:
+                        break;
+            }
+        }
+
+        #endregion
+
+        #region 按钮点击事件
+
         private void 摄像ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Preview p = new Preview();
             p.Show();
         }
+        //打开串口
+        //bool Send_status = false;
+        private void btn_Open_Click(object sender, EventArgs e)
+        {
+            if (cmb_SerialPort.Items.Count != 0)
+            {
+                try
+                {
+                    if (btn_Open.Text == "打开串口")
+                    {
+                        if (Port1.IsOpen == false)
+                        {
+                            Port1.PortName = cmb_SerialPort.Text;
+                            Port1.BaudRate = Convert.ToInt32(cmb_BaudRate.Text);
+                            Port1.Handshake = Handshake.None;
+                            Port1.Parity = Parity.None;
+                            Port1.DataBits = 8;
+                            Port1.StopBits = StopBits.One;
+                            Port1.RtsEnable = true;
+                            Send_status = true;
 
+                            Port1.Open();
+                            MessageBox.Show("打开成功！");
+                            tsl_Show.Text = cmb_SerialPort.Text + " 串口已打开                                                                                     ";
+                            btn_Open.Text = "关闭串口";
+
+                            btn_Auto.Text = "自动";
+                            //btn_Back.Enabled = false;
+                            //btn_Forward.Enabled = false;
+                            //btn_Stop.Enabled = false;
+                        }
+                    }
+                    else if (Port1.IsOpen == true)
+                    {
+                        Port1.Close();
+                        btn_Open.Text = "打开串口";
+                        tsl_Show.Text = "串口已关闭                                                                                    ";
+
+                        //btn_Auto.Enabled = false;
+                        //btn_Back.Enabled = false;
+                        //btn_Forward.Enabled = false;
+                        //btn_Stop.Enabled = false;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("端口打开失败，请检查端口是否被占用！", "错误提示");
+                }
+            }
+            else
+            {
+                MessageBox.Show("没有发现可用端口！", "错误提示");
+            }
+        }
+
+        //自动
         private void btn_Auto_Click(object sender, EventArgs e)
         {
             if (Port1.IsOpen)
@@ -503,7 +529,7 @@ namespace Trackingcar
                     btn_Back.Enabled = false;
                     btn_Forward.Enabled = false;
                     btn_Stop.Enabled = false;
-                    btn_Save.Enabled =false;
+                    btn_Save.Enabled = false;
                     btn_Change.Enabled = false;
                 }
             }
@@ -513,11 +539,111 @@ namespace Trackingcar
             }
         }
 
+        ArrayList list = new ArrayList();
+        //保存
         private void btn_Save_Click(object sender, EventArgs e)
         {
             if (Port1.IsOpen)
             {
+                //如果选择了，就是红色
+                if (chk_One.Checked == true)
+                {
+                    pic1.Image = Properties.Resources.red1;
+                    led_Choosed = 1;
+                    list[0] = 1;
+                }
+                else
+                {
+                    pic1.Image = Properties.Resources.green1;
 
+                    this.one_Delay.SelectedIndex = 0;
+                    list[0] = 0;
+                }
+
+                if (chk_Two.Checked == true)
+                {
+                    pic2.Image = Properties.Resources.red2;
+                    led_Choosed = 2;
+                    list[1] = 1;
+                }
+                else
+                {
+                    pic2.Image = Properties.Resources.green2;
+                    this.two_Delay.SelectedIndex = 0;
+                    list[1] = 0;
+                }
+                if (chk_Three.Checked == true)
+                {
+                    pic3.Image = Properties.Resources.red3;
+                    list[2] = 1;
+                }
+                else
+                {
+                    pic3.Image = Properties.Resources.green3;
+                    this.three_Delay.SelectedIndex = 0;
+                    list[2] = 0;
+                }
+                if (chk_Four.Checked == true)
+                {
+                    pic4.Image = Properties.Resources.red4;
+                    list[3] = 1;
+                }
+                else
+                {
+                    pic4.Image = Properties.Resources.green4;
+                    this.four_Delay.SelectedIndex = 0;
+                    list[3] = 0;
+                }
+
+                if (chk_Five.Checked == true)
+                {
+                    pic5.Image = Properties.Resources.red5;
+                    list[4] = 1;
+                }
+                else
+                {
+                    pic5.Image = Properties.Resources.green5;
+                    this.five_Delay.SelectedIndex = 0;
+                    list[4] = 0;
+                }
+
+                if (chk_Six.Checked == true)
+                {
+                    pic6.Image = Properties.Resources.red6;
+                    list[5] = 1;
+                }
+                else
+                {
+                    pic6.Image = Properties.Resources.green6;
+                    this.six_Delay.SelectedIndex = 0;
+                    list[5] = 0;
+                }
+
+                if (chk_Seven.Checked == true)
+                {
+                    pic7.Image = Properties.Resources.red7;
+                    list[6] = 1;
+                }
+                else
+                {
+                    pic7.Image = Properties.Resources.green7;
+                    this.seven_Delay.SelectedIndex = 0;
+                    list[6] = 0;
+                }
+                if (chk_Eight.Checked == true)
+                {
+                    pic8.Image = Properties.Resources.red8;
+                    list[7] = 1;
+                }
+                else
+                {
+                    pic8.Image = Properties.Resources.green8;
+                    this.eight_Delay.SelectedIndex = 0;
+                    list[7] = 0;
+                }
+                //调用换图片的方法
+                th = new Thread(new ThreadStart(RunImage));
+                th.Start(); //开始
             }
             else
             {
@@ -525,10 +651,11 @@ namespace Trackingcar
             }
         }
 
+        //修改
         private void btn_Change_Click(object sender, EventArgs e)
         {
             if (Port1.IsOpen)
-            { 
+            {
 
             }
             else
@@ -537,5 +664,88 @@ namespace Trackingcar
             }
         }
 
+        //前进 
+        private void btn_Forward_Click(object sender, EventArgs e)
+        {
+            if (Send_status)
+            {
+                if (Port1.IsOpen)
+                {
+                    //开始位
+                    Port_Buffer[0] = 0xf3;
+                    //方向，前进 
+                    Port_Buffer[1] = 0xff;
+                    //速度位
+                    Port_Buffer[2] = 0x00;
+                    //待定
+                    Port_Buffer[3] = 0x00;
+                    //待定
+                    Port_Buffer[4] = 0x00;
+                    //结束位
+                    Port_Buffer[5] = 0xfc;
+                    //串口写入
+                    Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
+                }
+                else
+                {
+                    MessageBox.Show("请先打开串口");
+                }
+            }
+        }
+
+        //后退
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            if (Send_status)
+            {
+                if (Port1.IsOpen)
+                {
+                    Port_Buffer[0] = 0xf3;
+                    Port_Buffer[1] = 0xfd;  //
+                    Port_Buffer[2] = 0x00;
+                    Port_Buffer[3] = 0x00;
+                    Port_Buffer[4] = 0x00;
+                    Port_Buffer[5] = 0xfc;
+                    Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
+                }
+                else
+                {
+                    MessageBox.Show("请先打开串口");
+                }
+            }
+        }
+
+        //停止
+        private void btn_Stop_Click(object sender, EventArgs e)
+        {
+            Send_status = true;
+
+            if (Port1.IsOpen)
+            {
+                Port_Buffer[0] = 0xf3;
+                Port_Buffer[1] = 0xfe;  //
+                Port_Buffer[2] = 0x00;
+                Port_Buffer[3] = 0x00;
+                Port_Buffer[4] = 0x00;
+                Port_Buffer[5] = 0xfc;
+                Port1.Write(Port_Buffer, 0, Port_Buffer.Length);
+            }
+            else
+            {
+                MessageBox.Show("请先打开串口");
+            }
+
+        }
+
+        //串口检测
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            //从combobox1中移除所有项
+            cmb_SerialPort.Items.Clear();
+
+            SearchPort();
+        }
+
+        #endregion
     }
 }
